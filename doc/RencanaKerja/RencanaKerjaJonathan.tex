@@ -1,0 +1,139 @@
+\documentclass[a4paper,twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[bahasa]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage[cm]{fullpage}
+\pagestyle{myheadings}
+\usepackage{etoolbox}
+\usepackage{setspace} 
+\usepackage{lipsum} 
+\setlength{\headsep}{30pt}
+\usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
+% \pagestyle{empty}
+
+\makeatletter
+\renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
+\renewcommand{\thispagestyle}[1]{}
+\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2020/2021}}}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
+\renewcommand{\baselinestretch}{1}
+\setlength{\parindent}{0 pt}
+\setlength{\parskip}{6 pt}
+
+\onehalfspacing
+ 
+\begin{document}
+
+\title{\@judultopik}
+\author{\nama \textendash \@npm} 
+
+%tulis nama dan NPM anda di sini:
+\newcommand{\nama}{Jonathan Laksamana Purnomo}
+\newcommand{\@npm}{2016730081}
+\newcommand{\@judultopik}{Visualisasi Data Histori
+KIRI pada Google Maps} % Judul/topik anda
+\newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
+\newcommand{\tanggal}{10/07/2020}
+
+% Dokumen hasil template ini harus dicetak bolak-balik !!!!
+
+\maketitle
+
+\pagenumbering{arabic}
+
+\section{Deskripsi}
+Kemajuan teknologi memudahkan manusia untuk mencari berbagai macam informasi. Salah satu informasi yang dapat diperoleh adalah informasi tentang navigasi transportasi publik. KIRI  adalah perangkat lunak yang berguna sebagai navigasi antar kota menggunakan transportasi publik dengan menggunakan perangkat peta digital dan informasi posisi dengan menggunakan satelit GPS.
+
+Visualisasi Data adalah teknik  untuk mengkomunikasikan data atau informasi dengan menggunakan objek visual  seperti \textit{graphic, chart, diagram, dll}. Salah satu objek visual yang dapat digunakan untuk merepresentasikan data adalah \textit{Google Maps}.
+
+Pada perangkat lunak KIRI seluruh aktivitas yang dilakukan oleh user sudah tercatat. Data yang tercatat disebut juga dengan data histori. Tetapi data histori tersebut belum diolah secara maksimal. Data visualisasi adalah metode yang akan digunakan untuk mengolah data histori sehingga dapat ditemukan pola tertentu.
+
+Metode yang akan digunakan dalam memvisualisasikan data adalah \textit{Heat Map } dan \textit{Marker Clustering}. \textit{Heat Map} adalah teknik visualisasi data yang menunjukkan besarnya suatu fenomena sebagai warna dalam dua dimensi. Sedangkan \textit{Marker Clustering}  adalah teknik visualisasi data  yang  mengelompokan \textit{marker} atau \textit{pointer} yang jarak \textit{latitude} dan \textit{longitude} nya saling berdekatan antara suatu \textit{marker} dengan marker yang lainnya.
+
+
+
+
+
+\section{Rumusan Masalah}
+Rumusan masalah dari topik ini adalah sebagai berikut:
+\begin{itemize}
+  \item Bagaimana memvisualisasikan data histori KIRI?
+  \item Bagaimana menemukan pola dari data histori KIRI?
+  \item Bagaimana membangun perangkat lunak yang dapat memvisualisasikan data histori KIRI?
+
+\end{itemize}
+
+\section{Tujuan}
+Tujuan dari topik ini adalah sebagai berikut:
+\begin{itemize}
+  \item Mempelajari teknik visualisasi data.
+  \item Melakukan observasi data.
+  \item Membangun perangkat lunak yang dapat memvisualisasikan data histori KIRI.
+
+\end{itemize}
+
+
+ \newpage \section{Deskripsi Perangkat Lunak}
+Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
+\begin{itemize}
+	\item Pengguna dapat melihat histori data dalam bentuk \textit{Heat Map} 
+	\item Pengguna dapat melihat histori data dalam bentuk \textit{Marker Clustering} 
+	\item Pengguna dapat melakukan \textit{filter} berdasarkan tempat awal dan tempat tujuan  dari histori data
+	\item Pengguna dapat melakukan \textit{filter} berdasarkan waktu atau hari  dari histori data
+\end{itemize}
+
+\section{Detail Pengerjaan Skripsi}
+Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
+	\begin{enumerate}
+		\item Mempelajari atribut-atribut pada histori data KIRI
+		\item Mempelajari data visualisasi
+		\item Mempelajari \textit{Google Maps API } khususnya \textit{Heat Map} dan \textit{Marker Clustering}
+		\item Membuat Desain Perangkat Lunak
+		\item Mengimplementasi Perangkat Lunak
+		\item Menulis dokumen skripsi
+	\end{enumerate}
+
+\section{Rencana Kerja}
+Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
+\begin{enumerate}
+		\item Mempelajari atribut-atribut pada histori data KIRI
+		\item Mempelajari data visualisasi
+		\item Mempelajari \textit{Google Maps API } khususnya \textit{Heat Map} dan \textit{Marker Clustering}
+\end{enumerate}
+
+Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
+\begin{enumerate}
+		\item Membuat Desain Perangkat Lunak
+		\item Mengimplementasi Perangkat Lunak
+		\item Menulis dokumen skripsi
+\end{enumerate}
+
+\newpage
+\vspace{1cm}
+\centering Bandung, \tanggal\\
+\vspace{2cm} \nama \\ 
+\vspace{1cm}
+
+Menyetujui, \\
+\ifdefstring{\jumpemb}{2}{
+\vspace{1.5cm}
+\begin{centering} Menyetujui,\\ \end{centering} \vspace{0.75cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013 \\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Utama
+\end{minipage} \hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Pendamping
+\end{minipage}
+\vspace{0.5cm}
+}{
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm}  Pascal Alfadian Nugroho, S.Kom, M.Comp\\ Pembimbing Tunggal
+}
+\end{document}
+
+
