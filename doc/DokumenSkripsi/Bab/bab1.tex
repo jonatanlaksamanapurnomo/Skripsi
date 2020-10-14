@@ -5,40 +5,73 @@
 \section{Latar Belakang}
 \label{sec:label}
 
-Bagian ini akan diisi dengan apa yang melatarbelakangi pembuatan template skripsi ini.
-Termasuk juga masalah-masalah yang akan dihadapi untuk membuatnya, termasuk kurangnya kemampuan penguasaan \LaTeX{} sehingga template ini dibuat dengan mengandalkan berbagai contoh yang tersebar di dunia maya, yang digabung-gabung menjadi satu jua.
-Bagian lain juga akan dilengkapi, untuk sementara diisi dengan lorem ipsum versi bahasa inggris.
+Kemajuan teknologi memudahkan manusia untuk mencari berbagai macam informasi. Salah satu informasi yang dapat diperoleh adalah informasi tentang navigasi transportasi publik. KIRI  adalah perangkat lunak yang berguna sebagai navigasi antar kota menggunakan transportasi publik dengan menggunakan perangkat peta digital dan informasi posisi dengan menggunakan satelit GPS.
 
-\dtext{5-10}
+Visualisasi Data adalah teknik  untuk mengkomunikasikan data atau informasi dengan menggunakan objek visual  seperti \textit{graphic, chart, diagram, dll}. Salah satu objek visual yang dapat digunakan untuk merepresentasikan data adalah \textit{Google Maps}.
+
+Pada perangkat lunak KIRI seluruh aktivitas yang dilakukan oleh user sudah tercatat. Data yang tercatat disebut juga dengan data histori. Tetapi data histori tersebut belum diolah secara maksimal. Data visualisasi adalah metode yang akan digunakan untuk mengolah data histori sehingga dapat ditemukan pola tertentu.
+
+Metode yang akan digunakan dalam memvisualisasikan data adalah \textit{Heat Map } dan \textit{Marker Clustering}. \textit{Heat Map} adalah teknik visualisasi data yang menunjukkan besarnya suatu fenomena sebagai warna dalam dua dimensi. Sedangkan \textit{Marker Clustering}  adalah teknik visualisasi data  yang  mengelompokan \textit{marker} atau \textit{pointer} yang jarak \textit{latitude} dan \textit{longitude} nya saling berdekatan antara suatu \textit{marker} dengan marker yang lainnya.
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
-Bagian ini akan diisi dengan penajaman dari masalah-masalah yang sudah diidentifikasi di bagian sebelumnya. 
+Rumusan masalah dari topik ini adalah sebagai berikut:
+\begin{itemize}
+  \item Bagaimana memvisualisasikan data histori KIRI?
+  \item Bagaimana menemukan pola dari data histori KIRI?
+  \item Bagaimana membangun perangkat lunak yang dapat memvisualisasikan data histori KIRI?
 
-\dtext{6}
+\end{itemize}
 
 \section{Tujuan}
 \label{sec:tujuan}
-Akan dipaparkan secara lebih terperinci dan tersturkur apa yang menjadi tujuan pembuatan template skripsi ini
+Tujuan dari topik ini adalah sebagai berikut:
+\begin{itemize}
+  \item Mempelajari teknik visualisasi data.
+  \item Melakukan observasi data.
+  \item Membangun perangkat lunak yang dapat memvisualisasikan data histori KIRI.
 
-\dtext{7}
+\end{itemize}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
-Untuk mempermudah pembuatan template ini, tentu ada hal-hal yang harus dibatasi, misalnya saja bahwa template ini bukan berupa style \LaTeX{} pada umumnya (dengan alasannya karena belum mampu jika diminta membuat seperti itu)
-
-\dtext{8}
+\dtext{9}
 
 \section{Metodologi}
 \label{sec:metlit}
-Tentunya akan diisi dengan metodologi yang serius sehingga templatenya terkesan lebih serius.
+Metodologi yang digunakan dalam penelitian ini adalah:
+	\begin{enumerate}
+		\item Melakukan studi literatur mengenai teknik visualisasi data.
+		\item Mempelajari \textit{Google Maps API} khususnya \textit{Heat Map} dan \textit{Marker Clustering}.
+		\item Analisis masalah perangkat lunak yang akan dibangun.
+		\item Merancang perangkat lunak yang akan dibangun.
+		\item Membangun perangkat lunak yang mengimplementasikan \textit{Heat Map} atau \textit{Marker Clustering} dengan memanfaatkan \textit{Google Maps API}.
+		\item Menentukan pola dari hasil visualisasi data.
+		\item Analisis hasil pengujian dan mengambil kesimpulan.
+	\end{enumerate}
 
-\dtext{9}
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
-Rencananya Bab 2 akan berisi petunjuk penggunaan template dan dasar-dasar \LaTeX.
-Mungkin bab 3,4,5 dapt diisi oleh ketiga jurusan, misalnya peraturan dasar skripsi atau pedoman penulisan, tentu jika berkenan.
-Bab 6 akan diisi dengan kesimpulan, bahwa membuat template ini ternyata sungguh menghabiskan banyak waktu.
-
-\dtext{10}
+Laporan penelitian tersusun ke dalam enam bab secara sistematis sebagai berikut.
+\begin{itemize}
+    \item Bab 1 Pendahuluan\\
+    Berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi penelitian, dan sistematika pembahasan.
+   
+   \item Bab 2 Dasar Teori\\
+    Berisi dasar teori tentang teknik visualisasi data , metode penentuan pola, \textit{library Google Maps} dan bahasa pemograman \textit{Javascript}
+   
+    \item Bab 3 Analisis\\
+    Berisi analisis masalah terkait implementasi \textit{Goole Map}, studi kasus teknik penentuan pola yang diimplementasikan, dan gambaran umum perangkat lunak yang meliputi diagram aktivitas dan diagram kelas.
+  
+    \item Bab 4 Perancangan Perangkat Lunak\\
+    Berisi perancangan perangkat lunak yang akan dibangun, meliputi perancangan antarmuka,
+diagram kelas lengkap dan masukan perangkat lunak.
+    
+    \item Bab 5 Implementasi dan Pengujian\\
+Berisi implementasi antarmuka perangkat lunak, pengujian fungsional, pengujian eksperimental
+serta kesimpulan dari pengujian.
+   
+    \item Bab 6 Kesimpulan dan Saran\\
+    Berisi kesimpulan dari awal hingga akhir penelitian dan saran untuk penelitian berikutnya.
+\end{itemize}
