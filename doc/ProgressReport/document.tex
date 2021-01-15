@@ -16,7 +16,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{Laporan Perkembangan Pengerjaan Skripsi\textemdash Sem. Genap 2015/2016}}}
+\markright{\textbf{\textsc{Laporan Perkembangan Pengerjaan Skripsi\textemdash Sem. Ganjil 2020/2021}}}
 
 \onehalfspacing
  
@@ -26,15 +26,15 @@
 \author{\nama \textendash \@npm} 
 
 %ISILAH DATA BERIKUT INI:
-\newcommand{\nama}{Lionov}
-\newcommand{\@npm}{1997730020}
-\newcommand{\tanggal}{01/01/1900} %Tanggal pembuatan dokumen
-\newcommand{\@judultopik}{Simulasi Kerumunan di Museum} % Judul/topik anda
+\newcommand{\nama}{Jonathan Laksamana Purnomo}
+\newcommand{\@npm}{2016730081}
+\newcommand{\tanggal}{01/15/2021} %Tanggal pembuatan dokumen
+\newcommand{\@judultopik}{Visualisasi Data Histori KIRI pada Google Maps} % Judul/topik anda
 \newcommand{\kodetopik}{TAB0901}
 \newcommand{\jumpemb}{2} % Jumlah pembimbing, 1 atau 2
-\newcommand{\pembA}{Thomas Anung Basuki}
+\newcommand{\pembA}{Pascal Alfadian Nugroho}
 \newcommand{\pembB}{-}
-\newcommand{\semesterPertama}{40 - Genap 15/16} % semester pertama kali topik diambil, angka 1 dimulai dari sem Ganjil 96/97
+\newcommand{\semesterPertama}{45 - Ganjil 20/21} % semester pertama kali topik diambil, angka 1 dimulai dari sem Ganjil 96/97
 \newcommand{\lamaSkripsi}{1} % Jumlah semester untuk mengerjakan skripsi s.d. dokumen ini dibuat
 \newcommand{\kulPertama}{Skripsi 1} % Kuliah dimana topik ini diambil pertama kali
 \newcommand{\tipePR}{B} % tipe progress report :
@@ -50,7 +50,7 @@
 
 \section{Data Skripsi} %TIDAK PERLU MENGUBAH BAGIAN INI !!!
 Pembimbing utama/tunggal: {\bf \pembA}\\
-Pembimbing pendamping: {\bf \pembB}\\
+% Pembimbing pendamping: {\bf \pembB}\\
 Kode Topik : {\bf \kodetopik}\\
 Topik ini sudah dikerjakan selama : {\bf \lamaSkripsi} semester\\
 Pengambilan pertama kali topik ini pada : Semester {\bf \semesterPertama} \\
@@ -65,99 +65,102 @@ Tipe Laporan : {\bf \tipePR} -
 		}
 		
 \section{Latar Belakang}
+Kemajuan teknologi memudahkan manusia untuk mencari berbagai macam informasi. Salah satu informasi yang dapat diperoleh adalah informasi tentang navigasi transportasi publik. KIRI  adalah perangkat lunak yang berguna sebagai navigasi antar kota menggunakan transportasi publik dengan menggunakan perangkat peta digital dan informasi posisi dengan menggunakan satelit GPS.
 
+Visualisasi Data adalah teknik  untuk mengkomunikasikan data atau informasi dengan menggunakan objek visual  seperti \textit{graphic, chart, diagram, dll}. Salah satu objek visual yang dapat digunakan untuk merepresentasikan data adalah \textit{Google Maps}.
+
+Pada perangkat lunak KIRI seluruh aktivitas yang dilakukan oleh user sudah tercatat. Data yang tercatat disebut juga dengan data histori. Tetapi data histori tersebut belum diolah secara maksimal. Visualisasi data  adalah metode yang akan digunakan untuk mengolah data histori sehingga dapat ditemukan pola tertentu.
+
+Metode yang akan digunakan dalam memvisualisasikan data adalah \textit{Heat Map } dan \textit{Marker Clustering}. \textit{Heat Map} adalah teknik visualisasi data yang menunjukkan besarnya suatu fenomena sebagai warna dalam dua dimensi. Sedangkan \textit{Marker Clustering}  adalah teknik visualisasi data  yang  mengelompokan \textit{marker} atau \textit{pointer} yang jarak \textit{latitude} dan \textit{longitude} nya saling berdekatan antara suatu \textit{marker} dengan marker yang lainnya.
 \section{Rumusan Masalah}
+Rumusan masalah dari topik ini adalah sebagai berikut:
+\begin{itemize}
+  \item Bagaimana memvisualisasikan data histori KIRI?
+  \item Bagaimana menemukan pola dari data histori KIRI?
+  \item Bagaimana membangun perangkat lunak yang dapat memvisualisasikan data histori KIRI?
+
+\end{itemize}
+
 
 \section{Tujuan}
+Tujuan dari topik ini adalah sebagai berikut:
+\begin{itemize}
+  \item Mempelajari teknik visualisasi data.
+  \item Melakukan observasi data.
+  \item Membangun perangkat lunak yang dapat memvisualisasikan data histori KIRI.
+
+\end{itemize}
 
 
 \section{Detail Perkembangan Pengerjaan Skripsi}
 Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan terkahir :
 	\begin{enumerate}
-		\item \textbf{Melakukan survei ke Museum Geologi Bandung untuk mendapatkan denah serta mengetahui perilaku pengunjung museum secara umum (arah perjalanan, kecepatan, lama melihat objek, dll).}\\
+		\item \textbf{Mempelajari atribut-atribut pada histori data KIRI.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Survei sudah dilakukan sebanyak 3x pada tanggal X, Y dan Z. Pada kunjungan pertama, diperhaitkan denah museum dan dibuat sketsa berdasarkan pengamatan. Pada kunjunga kedua, bertemu dengan bagian humas museum dan berhasil mendapatkan denah serta melakukan wawancara. Hasil wawancara sudah dibuat dan ada softcopy-nya. Pada kunjungan ketiga, secara khusus dilihat perilaku pengunjung. Masih direncakanan 2x kunjungan lagi. Bukti-bukti kunjungan dapat dilihat di lampiran
+		{\bf Hasil :} Proses pembelajaran sudah dilakukan sebanyak 2x. Proses pembelajaran yang pertama dilakukan saat mengerjakan prasyarat skripsi. Proses pembelajaran kedua dilakukan saat mempelajari \textit{Google Maps API}
 		
-		\item \textbf{Melakukan analisis pada hasil survei terhadap pergerakan pengunjung di museum dan membuat rancangan denah di komputer yang dilengkapi dengan penghalang dan objek di museum.}\\
+		\item \textbf{Mempelajari visualisasi data.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
+		{\bf Hasil :} Proses pembelajaraan sudah dilakukan sebanyak 1x. Proses pembelajaran dilakukan pada mata kuliah Analisis Big Data yang diambil bersamaan dengan skripsi 1
 
-		\item \textbf{Melakukan studi literatur mengenai sifat kolektif suatu kerumunan, teknik {\it social force model} dan teknik {\it flow tiles}}\\
+		\item \textbf{Mempelajari \textit{Google Maps API}  khususnya \textit{HeatMap} dan \textit{MarkerClustering}}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
+		{\bf Hasil :} Proses pembelajaran sudah dilakukan sebanyak 1x. Proses pembelajaran dilakukan dengan membuat prototype perangkat lunak yang dapat diakses pada halaman pada halaman website (https://github.com/jonatanlaksamanapurnomo/KiriHistory)
 
-		\item \textbf{Mempelajari bahasa pemrograman C++ dan cara menggunakan framework OpenSteer}\\
+		\item \textbf{Membuat desain perangkat lunak}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
+		{\bf Hasil :} Belum dikerjakan.
 
-		\item \textbf{Merancang pergerakan kerumunan di dalam museum menggunakan teknik {\it social force model} dan {\it flow tiles} serta menggunakan teknik lainnya seperti konsep pathway dan waypoints. Selain itu, dirancang pula adanya waktu tunggu (pada saat pengunjung melihat objek di museum) dan cara pembuatan jalur bagi setiap individu pengunjung}\\
+		\item \textbf{Mengimplementasi perangkat lunak}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
+		{\bf Hasil :} Belum dikerjakan.
 
-		\item \textbf{Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)}\\
-		{\bf Status :} dihapuskan/tidak dikerjakan \\
-		{\bf Hasil :} berdasarkan analisis singkat, tidak dilakukan analisis lebih jauh karena tidak diperlukan struktur data baru, karena sudah disediakan oleh OpenSteer versi terbaru
-
-		\item \textbf{Mengimplementasikan keseluruhan algoritma dan struktur data yang dirancang, dengan menggunakan framework OpenSteer} \\
+		\item \textbf{Menulis dokumen skripsi} \\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
-
-		\item \textbf{Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
-
-		\item \textbf{Menulis dokumen skripsi}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} \lipsum[1]
-		
-		\item \textbf{Mempelajari cara menggunakan fitur manipulasi obstacle yang disediakan oleh framework Opensteer versi terbaru}\\
-		{\bf Status :} baru ditambahkan pada semester ini\\
-		{\bf Hasil :} baru direncanakan karena framework Opensteer versi paling akhir baru selesai diinstall dan dilihat-lihat bagian contoh-contoh simulasinya
-		
+		{\bf Hasil :} Belum dikerjakan.
 
 	\end{enumerate}
 
 \section{Pencapaian Rencana Kerja}
 Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+\item Mempelajari atribut-atribut pada histori data KIRI.
+\item Mempelajari visualisasi data.
+\item Mempelajari \textit{Google Maps API}  khususnya \textit{HeatMap} dan \textit{MarkerClustering}.
 \end{enumerate}
 
 
 
-\section{Kendala yang Dihadapi}
-%TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
-Kendala - kendala yang dihadapi selama mengerjakan skripsi :
-\begin{itemize}
-	\item Terlalu banyak melakukan prokratinasi
-	\item Terlalu banyak godaan berupa hiburan (game, film, dll)
-	\item Skripsi diambil bersamaan dengan kuliah ASD karena selama 5 semester pertama kuliah tersebut sangat dihindari dan tidak diambil, dan selama 4 semester terakhir kuliah tersebut selalu mendapat nilai E
-	\item Mengalami kesulitan pada saat sudah mulai membuat program komputer karena selama ini selalu dibantu teman
-\end{itemize}
+% \section{Kendala yang Dihadapi}
+% %TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
+% Kendala - kendala yang dihadapi selama mengerjakan skripsi :
+% \begin{itemize}
+% 	\item Sulit menemukan refrensi yang valid dan lengkap untuk beberapa \textit{tools} yang digunakan dalam skripsi ini.
+% 	\item Terlalu
+% \end{itemize}
 
-\vspace{1cm}
+\vspace{6cm}
 \centering Bandung, \tanggal\\
 \vspace{2cm} \nama \\ 
 \vspace{1cm}
 
-Menyetujui, \\
 \ifdefstring{\jumpemb}{2}{
 \vspace{1.5cm}
 \begin{centering} Menyetujui,\\ \end{centering} \vspace{0.75cm}
 \begin{minipage}[b]{0.45\linewidth}
 % \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013 \\
-\vspace{2cm} Nama: \pembA \\ Pembimbing Utama
+\vspace{2cm} \begin{center}
+    Nama: \pembA \\ Pembimbing Utama
+\end{center} 
 \end{minipage} \hspace{0.5cm}
 \begin{minipage}[b]{0.45\linewidth}
 % \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
-\vspace{2cm} Nama: \pembB \\ Pembimbing Pendamping
+% \vspace{2cm} Nama: \pembB \\ Pembimbing Pendamping
 \end{minipage}
 \vspace{0.5cm}
 }{
 % \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
-\vspace{2cm} Nama: \pembA \\ Pembimbing Tunggal
+% \vspace{2cm} Nama: \pembA \\ Pembimbing Tunggal
 }
 \end{document}
 
