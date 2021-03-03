@@ -5,11 +5,33 @@
 \section{Latar Belakang}
 \label{sec:label}
 
-Kemajuan teknologi memudahkan manusia untuk mencari berbagai macam informasi. Salah satu informasi yang dapat diperoleh adalah informasi tentang navigasi transportasi publik. KIRI  adalah perangkat lunak yang berguna sebagai navigasi antar kota menggunakan transportasi publik dengan menggunakan perangkat peta digital dan informasi posisi dengan menggunakan satelit GPS.\cite{pascal:17:KIRI}.
+Kemajuan teknologi memudahkan manusia untuk mencari berbagai macam informasi. Salah satu informasi yang dapat diperoleh adalah informasi tentang navigasi transportasi publik. KIRI  adalah perangkat lunak yang berguna sebagai navigasi antar kota menggunakan transportasi publik dengan menggunakan perangkat peta digital\cite{pascal:17:KIRI}. Pada awal pembuatannya KIRI dibuat untuk tujuan komersial. Namun karena dinilai kurang sukses, projek KIRI sekarang menjadi open source projek yang dapat di akses. Aplikasi KIRI memiliki beberapa fitur sebagai berikut:
+\begin{itemize}
+	\item Pemilihan rute tercepat menggunakan angkutan kota.
+	\item Menampilkan tempat pergantian angkutan kota.
+	\item Memiliki fitur multi bahasa.
+	\item Memiliki fitur pemilihan lokasi.
+	\item Dapat menampilkan beberapa pilihan rute.
+	\item Dapat menampilkan instruksi lengkap  mencapai tujuan.
+\end{itemize}
 
-Pada perangkat lunak KIRI seluruh aktivitas yang dilakukan oleh user sudah tercatat. Data yang tercatat disebut juga dengan data histori. Tetapi data histori tersebut belum diolah secara maksimal. Data visualisasi adalah metode yang akan digunakan untuk mengolah data histori sehingga dapat ditemukan pola tertentu.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{Gambar/kiri-example-1}
+	\caption{Tampilan utama website KIRI}
+	\label{fig:my_label}
+\end{figure}
+
+
+
+Pada perangkat lunak KIRI seluruh aktivitas yang dilakukan oleh user sudah tercatat. Data yang tercatat disebut juga dengan data histori. Data histori kiri memiliki jumlah record yang cukup banyak sehingga memungkinkan untuk mendapatkan informasi dari data tersebut. Tetapi data histori tersebut belum diolah secara maksimal.
+
+Visualisasi Data adalah teknik  untuk mengkomunikasikan data atau informasi dengan menggunakan objek visual  seperti \textit{graphic, chart, diagram, dll}. Salah satu objek visual yang dapat digunakan untuk merepresentasikan data adalah \textit{Google Maps}.
 
 Metode yang akan digunakan dalam memvisualisasikan data adalah \textit{Heat Map} dan \textit{Marker Clustering}. \textit{Heat Map} adalah teknik visualisasi data yang menunjukkan besarnya suatu fenomena sebagai warna dalam dua dimensi. Sedangkan \textit{Marker Clustering}  adalah teknik visualisasi data  yang  mengelompokan \textit{marker} atau \textit{pointer} yang jarak \textit{latitude} dan \textit{longitude} nya saling berdekatan antara suatu \textit{marker} dengan marker yang lainnya.
+
+Pada skripsi ini akan dibangun perangkat lunak yang dapat memvisualisasikan data histori KIRI. Perangkat lunak ini akan menggunakan metode visualisasi \textit{heat map} dan \textit{marker clustering} dari hasil visualisasi tersebut akan diambil suatu pola kesimpulan dari data histori KIRI.
+
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
@@ -17,6 +39,8 @@ Rumusan masalah dari topik ini adalah sebagai berikut:
 \begin{itemize}
   \item Bagaimana memvisualisasikan data histori KIRI?
   \item Bagaimana menemukan pola dari data histori KIRI?
+  \item Bagaimana penerapan metode \textit{heat map} pada visualisasi data histori KIRI?
+  \item Bagaimana penerapan metode \textit{marker clustering} pada visualisasi data histori KIRI?
 
 
 \end{itemize}
@@ -27,6 +51,8 @@ Tujuan dari topik ini adalah sebagai berikut:
 \begin{itemize}
   \item Mempelajari \textit{Google Maps Javascript API}.
   \item Melakukan observasi data.
+  \item Mengimplementasikan metode \textit{Heat map} pada visualisasi data histori KIRI.
+  \item Mengimplementasikan metode \textit{Marker clustering} pada visualisasi data histori KIRI.
 
 
 \end{itemize}

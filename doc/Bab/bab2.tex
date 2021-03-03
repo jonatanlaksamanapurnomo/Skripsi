@@ -615,6 +615,7 @@ Pada subbab ini akan dijelaskan cara penggunaan kelas \textit{overlay} yang dise
 \end{itemize}
 
 \subsection{Marker}
+\label{sec:mark}
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{Gambar/add_marker.PNG}
@@ -664,6 +665,21 @@ Kelas \textit{marker} memiliki fungsi bawaan yang telah disediakan oleh antara l
     \item getTitle.
 \end{itemize}
 
+\subsection{Marker Clusterer}
+\textit{Google Maps Javascript API} telah menyediakan kelas \textit{MarkerClustererPlus} untuk dapat mengabungkan objek \textit{marker} \ref{sec:mark}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Gambar/marker_clustering.PNG}
+	\caption{Contoh Marker Clustering}
+	\label{fig:my_label}
+\end{figure}
+Untuk dapat  menginisialisasi kelas tersebut pihak pengembang perlu menuliskan perintah:
+\begin{lstlisting}
+    var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: `${path}/m`});
+\end{lstlisting}
+\textit{Marker Clusterer} sendiri meruapakan suatu library untuk kelas \textit{mark} sehingga kelas ini dapat menggunakan fungsi turunan dari kelas \textit{mark}.
+
 \subsection{HeatMap}
 \begin{figure}[H]
 	\centering
@@ -672,12 +688,14 @@ Kelas \textit{marker} memiliki fungsi bawaan yang telah disediakan oleh antara l
 	\label{fig:my_label}
 \end{figure}
 
+
 \textit{Google Maps Javascript API} telah menyediakan kelas \textit{heatmap} untuk menampilkan \textit{heatmap} pada objek \textit{maps}. Untuk dapat menginisialisasi kelas ini pengembang perlu memanggil perintah \textit{constructor} yang memiliki struktur seperti:
 \begin{lstlisting}
     HeatmapLayer([opts])
     Parameters: 
     opts:  HeatmapLayerOptions optional
-\end{lstlisting}
+\end{lstlisting}.
+
 Kelas \textit{HeatMap} dilengkapi dengan parameter \textit{HeatmapLayerOptions} yang bersifat opsional, objek ini  bertujuan untuk dapat mengatur \textit{property} dari kelas \textit{HeatMap}. Parameter \textit{HeatMapLayerOptions} merupakan sebuah objek yang memiliki atribut sebagai berikut:
 
 \begin{itemize}
