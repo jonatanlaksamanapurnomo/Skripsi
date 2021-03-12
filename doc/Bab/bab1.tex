@@ -8,23 +8,57 @@
 Kemajuan teknologi memudahkan manusia untuk mencari berbagai macam informasi. Salah satu informasi yang dapat diperoleh adalah informasi tentang navigasi transportasi publik. KIRI  adalah perangkat lunak yang berguna sebagai navigasi antar kota menggunakan transportasi publik dengan menggunakan perangkat peta digital\cite{pascal:17:KIRI}. Pada awal pembuatannya KIRI dibuat untuk tujuan komersial. Namun karena dinilai kurang sukses, projek KIRI sekarang menjadi open source projek yang dapat di akses. Aplikasi KIRI memiliki beberapa fitur sebagai berikut:
 \begin{itemize}
 	\item Pemilihan rute tercepat menggunakan angkutan kota.
-	\item Menampilkan tempat pergantian angkutan kota.
-	\item Memiliki fitur multi bahasa.
-	\item Memiliki fitur pemilihan lokasi.
-	\item Dapat menampilkan beberapa pilihan rute.
-	\item Dapat menampilkan instruksi lengkap  mencapai tujuan.
-\end{itemize}
-
-\begin{figure}[H]
+	perangkat lunak KIRI dapat menentukan rute terbaik untuk berpegian dengan angkutan umum. 
+	\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{Gambar/kiri-example-1}
 	\caption{Tampilan utama website KIRI}
 	\label{fig:my_label}
 \end{figure}
+	\item Memiliki fitur multi bahasa.
+	perangkat lunak kiri dilengkapi dengan fitur multi bahasa. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{Gambar/multibahasa.PNG}
+	\caption{Multi Bahasa}
+	\label{fig:my_label}
+\end{figure}
+	\item Dapat menampilkan instruksi lengkap  mencapai tujuan.
+	perangkat lunak kiri juga menampilkan seluruh instruksi lengkap penggunaan angkutan umum. 
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{Gambar/instuksi.PNG}
+	\caption{Instruksi KIRI}
+	\label{fig:my_label}
+\end{figure}
 
 
 
-Pada perangkat lunak KIRI seluruh aktivitas yang dilakukan oleh user sudah tercatat. Data yang tercatat disebut juga dengan data histori. Data histori kiri memiliki jumlah record yang cukup banyak sehingga memungkinkan untuk mendapatkan informasi dari data tersebut. Tetapi data histori tersebut belum diolah secara maksimal.
+Pada perangkat lunak KIRI seluruh aktivitas yang dilakukan oleh user sudah tercatat. Data yang tercatat disebut juga dengan data histori. Data histori kiri memiliki jumlah record yang cukup banyak sehingga memungkinkan untuk mendapatkan informasi dari data tersebut. Tetapi data histori tersebut belum diolah secara maksimal. Data histori KIRI memiliki format \textit{comma separated values} (csv) yang memiliki lima atribut yaitu:
+\begin{itemize}
+    \item LogId
+    Id unik  sebagai penanda satu record didalam data histori KIRI.
+    \item APIKey
+     atribut api key yang digunakan ketika melakukan perintah pada perangkat lunak KIRI.
+    \item Timestamp (UTC)
+    atribut untuk mencatat waktu perintah dilakukan format berbentuk \textit{timestamp}.
+    \item Action
+    jenis action yang dilakukan user pada saat menggunakan perangkat lunak KIRI. Terdapat empat nilai action pada data histori KIRI yakni:
+    \begin{itemize}
+        \item \textit{PAGELOAD}.
+        \item \textit{SEARCHPLACE}.
+        \item \textit{WIDGETLOAD}.
+        \item \textit{FINDROUTE}.
+    \end{itemize}
+    \item AdditionalData atribut yang digunakan untuk mencatat informasi tambahan berdasarkan action yang dipilih. Nilai pada additionaldata akan bergantung pada action yang dipilih:
+    \begin{itemize}
+        \item jika action bernilai \textit{PAGELOAD} maka additionaldata akan bernilai ip dari pengakses.
+        \item jika action bernilai \textit{SEARCHPLACE} maka additionaldata akan bernlai keyword yang dituliskan oleh pengakses.
+        \item jika action bernilai \textit{FINDROUTE} maka additionaldata akan bernilai posisi tempat dan tujuan dalam bentuk langtitude dan longtitude  yang dicari oleh pengakses.
+        \item jika action bernilai \textit{WIDGETLOAD} maka additionaldata akan bernilai alamat url dari penyedia widget.
+    \end{itemize}
+\end{itemize}
 
 Visualisasi Data adalah teknik  untuk mengkomunikasikan data atau informasi dengan menggunakan objek visual  seperti \textit{graphic, chart, diagram, dll}. Salah satu objek visual yang dapat digunakan untuk merepresentasikan data adalah \textit{Google Maps}.
 

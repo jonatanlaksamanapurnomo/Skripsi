@@ -10,20 +10,31 @@ KIRI adalah aplikasi navigasi angkutan umum berbasis web yang melayani Bandung d
 Pada awal pembuatannya KIRI dibuat untuk tujuan komersial. Namun karena dinilai kurang sukses projek KIRI sekarang menjadi open source projek yang dapat di akses. Aplikasi KIRI memiliki beberapa fitur sebagai berikut:
 \begin{itemize}
 	\item Pemilihan rute tercepat menggunakan angkutan kota.
-	\item Menampilkan tempat pergantian angkutan kota.
-	\item Memiliki fitur multi bahasa.
-	\item Memiliki fitur pemilihan lokasi.
-	\item Dapat menampilkan beberapa pilihan rute.
-	\item Dapat menampilkan instruksi lengkap  mencapai tujuan.
-\end{itemize}
-
-\begin{figure}[H]
+	perangkat lunak KIRI dapat menentukan rute terbaik untuk berpegian dengan angkutan umum. 
+	\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{Gambar/kiri-example-1}
 	\caption{Tampilan utama website KIRI}
 	\label{fig:my_label}
 \end{figure}
-
+	\item Memiliki fitur multi bahasa.
+	perangkat lunak kiri dilengkapi dengan fitur multi bahasa. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{Gambar/multibahasa.PNG}
+	\caption{Multi Bahasa}
+	\label{fig:my_label}
+\end{figure}
+	\item Dapat menampilkan instruksi lengkap  mencapai tujuan.
+	perangkat lunak kiri juga menampilkan seluruh instruksi lengkap penggunaan angkutan umum. 
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{Gambar/instuksi.PNG}
+	\caption{Instruksi KIRI}
+	\label{fig:my_label}
+\end{figure}
+ 
 
 
 
@@ -606,7 +617,7 @@ Membuat objek LatLng yang mewakili titik geografis. \textit{latitude} ditentukan
     \item Fungsi \textit{toJSON} fungsi ini akan mengembalikan format \textit{json} terhadap posisi latlng padda objek \textit{map}
     \item Fungsi \textit{toUrlValue} Mengembalikan string dalam bentuk "lat, lng" untuk LatLng ini.
 \end{itemize}
-\subsection{Ovelay System}
+\subsection{Drawing System}
 Pada subbab ini akan dijelaskan cara penggunaan kelas \textit{overlay} yang disediakan oleh \textit{google maps javascript api}. \textit{Google Maps Javascript API } memiliki  kelas-kelas yang digunakan untuk menggambar suatu objek didalam objek \textit{map}. Beberapa kelas \textit{overlay} yang disediakan adalah sebagai berikut:
 
 \begin{itemize}
@@ -629,21 +640,31 @@ Pada subbab ini akan dijelaskan cara penggunaan kelas \textit{overlay} yang dise
     Parameters: 
     opts:  MarkerOptions optional
 \end{lstlisting}
-Pada \textit{constructor} \textit{marker} terdapat parameter \textit{markeroptions} yang bersifat optional. \textit{MarkerOptions} merupakan sebuah objek yang dapat digunakan pada objek \textit{mark}. \textit{MarkerOptions} memiliki atribut seperti:
+Pada \textit{constructor} \textit{marker} terdapat parameter \textit{markeroptions} yang bersifat optional. \textit{MarkerOptions} merupakan sebuah objek yang dapat digunakan pada objek \textit{mark}. \textit{MarkerOptions} memiliki properti yang dapat digunakan  seperti:
 
-\begin{itemize}
-    \item Atribute \textit{anchorPoint}.
-    \item Atribute \textit{animation}.
-    \item Atribute \textit{clickable}.
-    \item Atribute \textit{crossOnDrag}.
-    \item Atribute \textit{cross}.
-    \item Atribute \textit{dragable}.
-    \item Atribute \textit{icon}.
-    \item Atribute \textit{label}.
-    \item Atribute \textit{map}.
-    \item Atribute \textit{opacity}.
-    \item Atribute \textit{position}.
-\end{itemize}
+\begin{table}[H] 
+	\centering 
+	\caption{Tabel Properti Pada Objek Marker}
+	\label{tab:radioPackages}
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+	\hline
+		Properi & Deksripsi \\
+    \hline
+    	Properti \textit{anchorPoint}.& Nilai offset dari objek marker terhadap info window. \\
+    	Properti \textit{animation}.  & Animasi yang akan digunakan ketika objek marker diinisialisasikan.  \\
+    	Properti \textit{clickable}.  & Properti penanda jika objek marker diklik.  \\
+    	Properti \textit{crossOnDrag}.  & Properti penanda jika objek marker didrag oleh pengguna. \\
+    	Properti \textit{cursor}.  & Properti yang akan menunjukan \textit{cursor}  ketika objek marker di \textit{hover}. \\
+    	Properti \textit{dragable}.  & Properti bertipe \textit{boolean} yang akan menandakan apakah objek marker dapat dilukakn operasi \textit{drag}. \\
+    	Properti \textit{icon}.  & Properti untuk memberikan icon pada objek marker. \\
+    	Properti \textit{label}.  & Properti untuk memberikan label pada objek marker. \\
+    	Properti \textit{map}.  & Properti untuk menentukan objek map yang akan dipakai oleh marker. \\
+    	Properti \textit{opacity}.  & Properti untuk mengakses nilai opacity dari objek marker \\
+    	Properti \textit{position}.  & Properti untuk mengakses nilai posisi dari objek marker. \\
+		\hline
+	\end{tabular} 
+\end{table}
+
 Contoh penginisialisasian \textit{marker} pada  objek \textit{maps} adalah:
 \begin{lstlisting}
     return new google.maps.Marker({
@@ -652,18 +673,28 @@ Contoh penginisialisasian \textit{marker} pada  objek \textit{maps} adalah:
             });
 \end{lstlisting}
 Kelas \textit{marker} memiliki fungsi bawaan yang telah disediakan oleh antara lain seperti:
-\begin{itemize}
-    \item getAnimation.
-    \item getClickable.
-    \item getCursor.
-    \item getDraggable.
-    \item getIcon.
-    \item getMap.
-    \item getOpacity.
-    \item getPosition.
-    \item getShape.
-    \item getTitle.
-\end{itemize}
+\begin{table}[H] 
+	\centering 
+	\caption{Tabel Fungsi Pada Kelas Marker}
+	\label{tab:radioPackages}
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+	\hline
+		Package & Deksripsi \\
+    \hline
+		getAnimation & Fungsi untuk mendapatkan animasi yang digunakan oleh objek marker \\
+		getClickable  & Fungsi untuk mendapatkan status \textit{clickable} \\
+		getCursor  & Fungsi untuk mendapatkan nilai \textit{cursor} \\
+		getDraggable  & Fungsi untuk mendapatkan nilai \textit{draggable} \\
+		getIcon  & Fungsi untuk mendapatkan nilai \textit{icon} \\
+		getMap  & Fungsi untuk mendapatkan objek \textit{map} \\
+		getOpacity  & Fungsi untuk mendapatkan objek \textit{opacity} \\
+		getPosition  & Fungsi untuk mendapatkan objek \textit{position} \\
+		getShape  & Fungsi untuk mendapatkan \textit{shape} dari objek \textit{marker} \\
+		getTitle  & Fungsi untuk mendapatkan \textit{title} dari objek \textit{marker} \\
+		\hline
+	\end{tabular} 
+\end{table}
+
 
 \subsection{Marker Clusterer}
 \textit{Google Maps Javascript API} telah menyediakan kelas \textit{MarkerClustererPlus} untuk dapat mengabungkan objek \textit{marker} \ref{sec:mark}.
