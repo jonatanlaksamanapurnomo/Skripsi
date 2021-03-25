@@ -8,32 +8,18 @@ Pada bab ini dijelaskan dasar-dasar teori mengenai KIRI website, JSON, CSV, dan 
 \label{sec:KIRI} 
 KIRI adalah aplikasi navigasi angkutan umum berbasis web yang melayani Bandung dan kota-kota lain di Indonesia.\cite{pascal:17:KIRI}.
 Pada awal pembuatannya KIRI dibuat untuk tujuan komersial. Namun karena dinilai kurang sukses projek KIRI sekarang menjadi open source projek yang dapat di akses. Aplikasi KIRI memiliki beberapa fitur sebagai berikut:
-\begin{itemize}
-	\item Pemilihan rute tercepat menggunakan angkutan kota.
-	perangkat lunak KIRI dapat menentukan rute terbaik untuk berpegian dengan angkutan umum. 
-	\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.3]{Gambar/kiri-example-1}
-	\caption{Tampilan utama website KIRI}
-	\label{fig:my_label}
-\end{figure}
-	\item Memiliki fitur multi bahasa.
-	perangkat lunak kiri dilengkapi dengan fitur multi bahasa. 
+
+\begin{enumerate}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{Gambar/multibahasa.PNG}
-	\caption{Multi Bahasa}
-	\label{fig:my_label}
+	\includegraphics[scale=0.3]{Gambar/KIRI.png}
+	\caption{Fitur-Fitur Pada Aplikasi KIRI}
+	\label{fig:kiri_fitur}
 \end{figure}
-	\item Dapat menampilkan instruksi lengkap  mencapai tujuan.
-	perangkat lunak kiri juga menampilkan seluruh instruksi lengkap penggunaan angkutan umum. 
-\end{itemize}
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.3]{Gambar/instuksi.PNG}
-	\caption{Instruksi KIRI}
-	\label{fig:my_label}
-\end{figure}
+	\item Pemilihan rute tercepat menggunakan angkutan kota. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna merah.
+	\item Memiliki fitur multi bahasa. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna \textit{orange}. 
+	\item Dapat menampilkan instruksi lengkap  mencapai tujuan. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna biru.
+\end{enumerate}
  
 
 
@@ -71,14 +57,14 @@ Penggunaan \textit{whitepace} sebelum atau setelah enam \textit{structural chara
 \subsection{Values}
 \textit{JSON value} harus berupa \textit{object}, \textit{array}, \textit{number}, atau \textit{string}, atau salah satu dari tiga \textit{literal names}:
 \begin{itemize}
-	\item true.
-	\item false.
-	\item null.
+	\item  \texttt{true}
+	\item \texttt{false}
+	\item \texttt{null} 
 \end{itemize}
 Setiap \textit{literal names} harus tersusun dari huruf kecil. Selain  \textit{literal names} yang disebutkan diatas tidak ada \textit{literals names} lain yang izinkan.
 
 \begin{lstlisting}
-      value = false / null / true / object / array / number / string
+       value = false / null / true / object / array / number / string
 
       false = %x66.61.6c.73.65   ; false
 
@@ -617,15 +603,9 @@ Membuat objek LatLng yang mewakili titik geografis. \textit{latitude} ditentukan
     \item Fungsi \textit{toJSON} fungsi ini akan mengembalikan format \textit{json} terhadap posisi latlng padda objek \textit{map}
     \item Fungsi \textit{toUrlValue} Mengembalikan string dalam bentuk "lat, lng" untuk LatLng ini.
 \end{itemize}
-\subsection{Drawing System}
-Pada subbab ini akan dijelaskan cara penggunaan kelas \textit{overlay} yang disediakan oleh \textit{google maps javascript api}. \textit{Google Maps Javascript API } memiliki  kelas-kelas yang digunakan untuk menggambar suatu objek didalam objek \textit{map}. Beberapa kelas \textit{overlay} yang disediakan adalah sebagai berikut:
 
-\begin{itemize}
-    \item \textit{Marker}.
-    \item \textit{Heat Map}.
-\end{itemize}
 
-\subsection{Marker}
+\section{Marker}
 \label{sec:mark}
   \begin{figure}[H]
     \centering
@@ -696,13 +676,13 @@ Kelas \textit{marker} memiliki fungsi bawaan yang telah disediakan oleh antara l
 \end{table}
 
 
-\subsection{Marker Clusterer}
-\textit{Google Maps Javascript API} telah menyediakan kelas \textit{MarkerClustererPlus} untuk dapat mengabungkan objek \textit{marker} \ref{sec:mark}.
+\section{Marker Clusterer}
+ \textit{MarkerClustererPlus} merupakan sebuah \textit{library} tambahan untuk dapat mengelompokan objek marker \ref{sec:mark}. Visualisasi dari \textit{MarkerClustererPlus} dapat dilihat pada gambar \ref{fig:mcp}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{Gambar/marker_clustering.PNG}
 	\caption{Contoh Marker Clustering}
-	\label{fig:my_label}
+	\label{fig:mcp}
 \end{figure}
 Untuk dapat  menginisialisasi kelas tersebut pihak pengembang perlu menuliskan perintah:
 \begin{lstlisting}
@@ -711,16 +691,16 @@ Untuk dapat  menginisialisasi kelas tersebut pihak pengembang perlu menuliskan p
 \end{lstlisting}
 \textit{Marker Clusterer} sendiri meruapakan suatu library untuk kelas \textit{mark} sehingga kelas ini dapat menggunakan fungsi turunan dari kelas \textit{mark}.
 
-\subsection{HeatMap}
+\section{HeatMap}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.8]{Gambar/heat-map-example.png}
 	\caption{Contoh HeatMap}
-	\label{fig:my_label}
+	\label{fig:sechm}
 \end{figure}
 
 
-\textit{Google Maps Javascript API} telah menyediakan kelas \textit{heatmap} untuk menampilkan \textit{heatmap} pada objek \textit{maps}. Untuk dapat menginisialisasi kelas ini pengembang perlu memanggil perintah \textit{constructor} yang memiliki struktur seperti:
+\textit{Google Maps Javascript API} telah menyediakan kelas \textit{heatmap} untuk menampilkan \textit{heatmap} pada objek \textit{maps} \ref{fig:sechm} . Untuk dapat menginisialisasi kelas ini pengembang perlu memanggil perintah \textit{constructor} yang memiliki struktur seperti:
 \begin{lstlisting}
     HeatmapLayer([opts])
     Parameters: 
