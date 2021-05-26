@@ -17,214 +17,34 @@ Pada awal pembuatannya KIRI dibuat untuk tujuan komersial. Namun karena dinilai 
 	\label{fig:kiri_fitur}
 \end{figure}
 	\item Pemilihan rute tercepat menggunakan angkutan kota. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna merah.
-	\item Memiliki fitur multi bahasa. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna \textit{orange}. 
+	\item Memiliki fitur multi bahasa. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna oranye. 
 	\item Dapat menampilkan instruksi lengkap  mencapai tujuan. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna biru.
 \end{enumerate}
  
 
 
 
-\section{JSON}
-\label{subsec:json}
-JSON (\textit{Javascript Object Notation}) adalah format teks untuk melakukan serialisasi data terstruktur\cite{RFC:7159}. JSON berasal objek literal \textit{javascript}, Seperti yang didefinisikan oleh oleh bahasa pemrograman \textit{ECMAScript}, JSON dapat mewakili empat tipe data primitif (\textit{strings}, \textit{numbers}, \textit{booleans}, \textit{null}) dan dua tipe data terstruktur (\textit{objects}, \textit{arrays}).
 
-\subsection{ JSON Grammar}
-JSON teks terdiri dari sekumpulan Token. Set Token mencakup enam \textit{structural characters }, \textit{strings}, \textit{numbers} dan tiga nama literal. JSON teks merupakan \textit{serialized value}. JSON membatasi JSON teks menjadi \textit{object} atau \textit{array}. Implementasi JSON hanya boleh menghasilkan \textit{object} atau \textit{array}. JSON memiliki enam \textit{structural characters} yaitu :
-
-\begin{itemize}
-	\item \begin{verbatim} begin-array     = ws %x5B ws  ; [ left square bracket. 
-	\end{verbatim}
-	\item \begin{verbatim} begin-object    = ws %x7B ws  ; { left curly bracket. 
-	\end{verbatim}
-	\item \begin{verbatim}  end-array       = ws %x5D ws  ; ] right square bracket. 
-	\end{verbatim}
-	\item \begin{verbatim}  end-object      = ws %x7D ws  ; } right curly bracket. 
-	\end{verbatim}
-	\item \begin{verbatim}  name-separator  = ws %x3A ws  ; : colon.
-	\end{verbatim}
-	\item \begin{verbatim}  value-separator = ws %x2C ws  ; , comma.
-	\end{verbatim}
-\end{itemize}
-Penggunaan \textit{whitepace} sebelum atau setelah enam \textit{structural characters} diperbolehkan.
-\begin{verbatim} 
- ws = *(
-              %x20 /              ; Space
-              %x09 /              ; Horizontal tab
-              %x0A /              ; Line feed or New line
-              %x0D )              ; Carriage return
-\end{verbatim}
-    
-\subsection{Values}
-\textit{JSON value} harus berupa \textit{object}, \textit{array}, \textit{number}, atau \textit{string}, atau salah satu dari tiga \textit{literal names}:
-\begin{itemize}
-	\item  \texttt{true}
-	\item \texttt{false}
-	\item \texttt{null} 
-\end{itemize}
-Setiap \textit{literal names} harus tersusun dari huruf kecil. Selain  \textit{literal names} yang disebutkan diatas tidak ada \textit{literals names} lain yang izinkan.
-
-\begin{lstlisting}
-       value = false / null / true / object / array / number / string
-
-      false = %x66.61.6c.73.65   ; false
-
-      null  = %x6e.75.6c.6c      ; null
-
-      true  = %x74.72.75.65      ; true
-\end{lstlisting}
-
-\subsection{Objects}
-\textit{Object} direpresentasikan dengan sepasang kurung kurawal ({}) kosong atau berisi name/\textit{value pair} atau (\textit{members)}. Nama pada \textit{objects} berupa \textit{string}. Setelah nama akan dikuti oleh simbol \textit{colon (:)} yang berfungsi untuk memisahkan nama dengan \textit{value}. Setelah value akan diikuti dengan simbol koma (,). Nama pada \textit{Object} harus bersifat unik.
-
-\begin{lstlisting}
-      object = begin-object [ member *( value-separator member ) ]
-               end-object
-
-      member = string name-separator value
-\end{lstlisting}
-\textit{Object} dengan susunan nama yang unik akan dapat beroperasi dan diimplementasikan oleh semua software. Jika susunan nama pada \textit{object} tidak bersifat unik maka respon perangkat lunak yang menerima \textit{object} tersebut tidak dapat diprediksi.
-
-\subsection{Arrays}
-\textit{Arrays} direpresentasikan dengan sepasang kurung siku ([]) kosong atau berisi satu atau lebih element. Elements pada array akan dipisahkan dengan simbol koma (,).
-
-\begin{lstlisting}
-    array = begin-array [ value *( value-separator value ) ] end-array
-\end{lstlisting}
-Tidak ada persyaratan bahwa \textit{value} pada array harus memiliki tipe data yang sama.
-
-\subsection{Numbers}
-\textit{Numbers} direpresentasikan menggunakan basis 10 \textit{decimal}, \textit{Number} bisa memiliki \textit{prefix} seperti simbol minus (-), \textit{Number} juga biasanya dilengkapi dengan pecahan dan eksponen. Dalam penulisan \textit{number} \textit{leading zero} tidak diperbolehkan. \textit{Pecahan} adalah \textit{decimal point} yang diikuti oleh satu atau lebih digit. \textit{Eksponen} biasanya diawali dengan \textit{character} E yang bisa diikuti dengan simbol opsional \textit{plus} atau \textit{minus}. Huruf E dan simbol opsional akan diikuti oleh satu atau lebih digit.
-Nilai \textit{Numeric} yang tidak diperbolehkan dalam aturan penulisan dibawah seperti (\textit{NaN} dan \textit{Infinity}).
-
-\begin{lstlisting}
-        number = [ minus ] int [ frac ] [ exp ]
-
-      decimal-point = %x2E       ; .
-
-      digit1-9 = %x31-39         ; 1-9
-
-      e = %x65 / %x45            ; e E
-
-      exp = e [ minus / plus ] 1*DIGIT
-
-      frac = decimal-point 1*DIGIT
-
-      int = zero / ( digit1-9 *DIGIT )
-
-      minus = %x2D               ; -
-
-      plus = %x2B                ; +
-
-      zero = %x30                ; 0
-\end{lstlisting}
-Spesifikasi ini memungkinkan implementasi untuk menetapkan batasan pada rentan  dan ketepatan angka yang diterima. Sejak banyak \textit{software} mengimplementasikan \textit{ IEEE 754-2008 binary64 (double precision) numbers}, Untuk mendapatkan performa yang baik maka \textit{implementasi} tidak boleh melebihi \textit{precision} atau \textit{range} yang disediakan.
-
-\subsection{Strings}
-\textit{String} direpresentasikan dengan simbol \textit{quotation marks} semua \textit{unicode} akan diletakan diantara simbol \textit{quotation marks}, Kecuali beberapa \textit{character} yang khusus yang harus melalui proses \textit{escape}:
-\begin{itemize}
-    \item Quotation mark.
-    \item Reverse solidus.
-    \item Control characters \textit{(U+0000,U+001F).} .
-\end{itemize}
-Untuk melakukan \textit{escape} pada \textit{extended character} atau pada \textit{character} yang tidak dalam bentuk penulisan standart, \textit{character} dapat direpresentasikan kedalam \textit{12-character sequence}.
-
-\begin{lstlisting}
-      string = quotation-mark *char quotation-mark
-
-      char = unescaped /
-          escape (
-              %x22 /          ; "    quotation mark  U+0022
-              %x5C /          ; \    reverse solidus U+005C
-              %x2F /          ; /    solidus         U+002F
-              %x62 /          ; b    backspace       U+0008
-              %x66 /          ; f    form feed       U+000C
-              %x6E /          ; n    line feed       U+000A
-              %x72 /          ; r    carriage return U+000D
-              %x74 /          ; t    tab             U+0009
-              %x75 4HEXDIG )  ; uXXXX                U+XXXX
-
-      escape = %x5C              ; \
-
-      quotation-mark = %x22      ; "
-
-      unescaped = %x20-21 / %x23-5B / %x5D-10FFFF
-\end{lstlisting}
-
-\subsection{JSON Example}
-Berikut ini adalah contoh penulisan \textit{JSON}
-\begin{itemize}
-    \item Contoh  JSON Object
-    \begin{lstlisting}
-        {
-        "Image": {
-            "Width":  800,
-            "Height": 600,
-            "Title":  "View from 15th Floor",
-            "Thumbnail": {
-                "Url":    "http://www.example.com/image/481989943",
-                "Height": 125,
-                "Width":  100
-            },
-            "Animated" : false,
-            "IDs": [116, 943, 234, 38793]
-          }
-      }
-    \end{lstlisting}
-    \textit{Image member} adalah sebuah \textit{object} yang memiliki \textit{Thumbnail member} yang merupakan sebuah  \textit{object} dan \textit{IDs Member} yang merupakan sebuah \textit{array}.
-    
-    \item Contoh JSON \textit{Array} dengan dua buah \textit{elements} yang berupa \textit{object} 
-        \begin{lstlisting}
-     [
-        {
-           "precision": "zip",
-           "Latitude":  37.7668,
-           "Longitude": -122.3959,
-           "Address":   "",
-           "City":      "SAN FRANCISCO",
-           "State":     "CA",
-           "Zip":       "94107",
-           "Country":   "US"
-        },
-        {
-           "precision": "zip",
-           "Latitude":  37.371991,
-           "Longitude": -122.026020,
-           "Address":   "",
-           "City":      "SUNNYVALE",
-           "State":     "CA",
-           "Zip":       "94085",
-           "Country":   "US"
-        }
-      ]
-
-    \end{lstlisting}
-    \item Contoh JSON teks yang hanya memiliki \textit{values} 
-    \begin{lstlisting}
-    "hello world"
-    32 
-    false
-    \end{lstlisting}
-\end{itemize}
    
 \section{CSV}
 \label{subsec:csv}
-CSV (\textit{Comma Separated Values}) adalah format penyajian data yang sudah umum digunakan dibanyak progam \textit{spreadsheet}, CSV memiliki format memisahkan setiap value dengan simbol titik koma (;) dan menggunakan baris baru sebagai penanda pemisah antar element data\cite{RFC:4180}.
+CSV (\textit{Comma Separated Values}) adalah format penyajian data yang sudah umum digunakan pada progam \textit{spreadsheet}, CSV memiliki format memisahkan setiap value dengan simbol titik koma (;) dan menggunakan baris baru sebagai penanda pemisah antar element data\cite{RFC:4180}.
 
 \subsection{CSV Format}
 Tidak ada spesifikasi \textit{formal} dalam penulisan csv. Format csv yang akan dituliskan pada dokumen ini adalah format yang paling banyak diimplementasikan:
 
 \begin{itemize}
-    \item Setiap field diletakan pada baris terpisah dan dipisahkan oleh \textit{line break (CLRF)} contoh:
+    \item Setiap field diletakan pada baris terpisah dan dipisahkan oleh \textit{line break (CLRF)}, contoh:
     \begin{lstlisting}
           aaa,bbb,ccc CRLF
           zzz,yyy,xxx CRLF
     \end{lstlisting}
-    \item \textit{Field} terakhir pada format csv tidak harus menggunakan \textit{line break (CLRF)} contoh:
+    \item \textit{Field} terakhir pada format csv tidak harus menggunakan \textit{line break (CLRF)}, contoh:
         \begin{lstlisting}
           aaa,bbb,ccc CRLF
           zzz,yyy,xxx 
     \end{lstlisting}
-    \item Memungkinkan adanya eksternal \textit{header} yang memiliki aturan penulisan yang sama dengan element pada csv. Nilai pada eksternal \textit{header} akan mewakili nama yang tercantum pada \textit{field} jumlah eksternal \textit{header} harus sama dengan jumlah kolom pada normal record contoh:
+    \item Memungkinkan adanya eksternal \textit{header} yang memiliki aturan penulisan yang sama dengan element pada csv. Nilai pada eksternal \textit{header} akan mewakili nama yang tercantum pada \textit{field} jumlah eksternal \textit{header} harus sama dengan jumlah kolom pada normal record, contoh:
     \begin{lstlisting}
        field_name,field_name,field_name CRLF
        aaa,bbb,ccc CRLF
@@ -232,7 +52,7 @@ Tidak ada spesifikasi \textit{formal} dalam penulisan csv. Format csv yang akan 
 
     \end{lstlisting}
     
-    \item Memungkinkan ada satu atau lebih, \textit{field} yang dipisahkab oleh koma (,). Setiap baris harus memiliki jumlah \textit{field} yang sama pada satu \textit{file}. Spasi dianggap sebuah element pada \textit{field} yang tidak dapat diabaikan. Pada field terkahir sebuah baris tidak boleh diberikan simbol koma (,) contoh:
+    \item Memungkinkan ada satu atau lebih \textit{field} yang dipisahka oleh koma (,). Setiap baris harus memiliki jumlah \textit{field} yang sama pada satu \textit{file}. Spasi dianggap sebuah element pada \textit{field} yang tidak dapat diabaikan. Pada field terkahir sebuah baris tidak boleh diberikan simbol koma (,), contoh:
     \begin{lstlisting}
        aaa,bbb,ccc
     \end{lstlisting}
@@ -243,7 +63,7 @@ Tidak ada spesifikasi \textit{formal} dalam penulisan csv. Format csv yang akan 
        zzz,yyy,xxx
     \end{lstlisting}
     
-    \item Jika simbol \textit{double quotes} meruapakan salah satu elemn pada \textit{field}, Maka simbol \textit{double quotes} tersebut harus diescape dengan memberikan simbol \textit{double quotes} lain didalam \textit{field} tersebut contoh:
+    \item Jika simbol \textit{double quotes} meruapakan salah satu elemn pada \textit{field}, Maka simbol \textit{double quotes} tersebut harus diescape dengan memberikan simbol \textit{double quotes} lain didalam \textit{field} tersebut, contoh:
     \begin{lstlisting}
       "aaa","b""bb","ccc"
     \end{lstlisting}
@@ -280,6 +100,7 @@ Tidak ada spesifikasi \textit{formal} dalam penulisan csv. Format csv yang akan 
 
 
 \section{Node.js}
+\label{sec:nodejs}
 \textit{Node.js} merupakan \textit{asynchronous event-driven JavaScript runtime}. Dengan menggunakan Node.js memungkinkan untuk menjalankan perintah \textit{javascript} tanpa menggunakan \textit{web browser}, \textit{Node.js} memungkinkan untuk menjalankan dan melakukan \textit{server-side scripting}\cite{Nodejs:01:about}. \textit{Node.js} didesain untuk membuat \textit{network applications} yang \textit{scaleable}. Berikut ini contoh syntax \textit{Node.js}:
 
 \begin{lstlisting}

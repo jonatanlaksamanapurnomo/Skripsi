@@ -1,15 +1,15 @@
 \chapter{Analisis}
 \label{chap:analisis}
-Pada bab ini dijelaskan mengenai deskripsi perangkat lunak,  analisis data histori KIRI , analisis perangkat lunak, dan analisis \textit{heat map} dan \textit{marker clustering} menggunakan  \textit{Google Maps Javascript API}.
+Pada bab ini dijelaskan mengenai deskripsi perangkat lunak, analisis data histori KIRI, analisis perangkat lunak, dan analisis \textit{heat map}, dan \textit{marker clustering} menggunakan  \textit{Google Maps Javascript API}.
 
 
 \section{Analisis Data Histori KIRI}
-Perangkat lunak yang akan menggunakan data histori KIRI sebagai sumber data untuk melakukan visualisasi data. Data histori KIRI memiliki format \textit{csv}. Data histori KIRI memiliki lima atribut yaitu:
+\label{sec:analisisDataHistoriKiri}
+Perangkat lunak  akan menggunakan data histori KIRI sebagai sumber data untuk melakukan visualisasi data. Data histori KIRI memiliki format \textit{csv}. Data histori KIRI memiliki lima atribut yaitu:
 \begin{itemize}
-    \item LogId
-    Id unik  sebagai penanda satu record didalam data histori KIRI.
+    \item LogId    sebagai penanda satu record didalam data histori KIRI.
     \item APIKey
-     atribut api key yang digunakan ketika melakukan perintah pada perangkat lunak KIRI.
+    sebagai  atribut api key yang digunakan ketika melakukan perintah pada perangkat lunak KIRI.
     \item Timestamp (UTC)
     atribut untuk mencatat waktu perintah dilakukan format berbentuk \textit{timestamp}.
     \item Action
@@ -22,10 +22,10 @@ Perangkat lunak yang akan menggunakan data histori KIRI sebagai sumber data untu
     \end{itemize}
     \item AdditionalData atribut yang digunakan untuk mencatat informasi tambahan berdasarkan action yang dipilih. Nilai pada additionaldata akan bergantung pada action yang dipilih:
     \begin{itemize}
-        \item jika action bernilai \textit{PAGELOAD} maka additionaldata akan bernilai ip dari pengakses.
-        \item jika action bernilai \textit{SEARCHPLACE} maka additionaldata akan bernlai keyword yang dituliskan oleh pengakses.
-        \item jika action bernilai \textit{FINDROUTE} maka additionaldata akan bernilai posisi tempat dan tujuan dalam bentuk langtitude dan longtitude  yang dicari oleh pengakses.
-        \item jika action bernilai \textit{WIDGETLOAD} maka additionaldata akan bernilai alamat url dari penyedia widget.
+        \item Jika action bernilai \textit{PAGELOAD} maka additionaldata akan bernilai ip dari pengakses.
+        \item Jika action bernilai \textit{SEARCHPLACE} maka additionaldata akan bernlai keyword yang dituliskan oleh pengakses.
+        \item Jika action bernilai \textit{FINDROUTE} maka additionaldata akan bernilai posisi tempat dan tujuan dalam bentuk langtitude dan longtitude  yang dicari oleh pengakses.
+        \item Jika action bernilai \textit{WIDGETLOAD} maka additionaldata akan bernilai alamat url dari penyedia widget.
     \end{itemize}
 \end{itemize}
 
@@ -65,7 +65,9 @@ Perangkat lunak ini akan melukan filter data dan memproses data histori kiri dan
 
 
 \section{Analisis Perangkat Lunak}
+Pada subbab ini akan dilakukan analisis untuk aplikasi visualisasi data histori KIRI.
 \subsection{Analisis Kebutuhan Perangkat Lunak}
+\label{sec:analisisKebutuhanPerangkatLunak}
 Berdasarkan latar belakang, rumusan masalah, dan tujuan maka dapat didefinisikan kebutuhan - kebutuhan perangkat lunak visualisasi data histori KIRI sebagi berikut:
 \begin{itemize}
     \item Data histori KIRI
@@ -76,11 +78,11 @@ Berdasarkan latar belakang, rumusan masalah, dan tujuan maka dapat didefinisikan
     
 \end{itemize}
 \subsection{Use Case Diagram}
-Interaksi antara pengguna dengan perangkat lunak yang dibangun pada skripsi ini digambarkan pada diagram \textit{use case} dan skenario berikut ini
+Interaksi antara pengguna dengan perangkat lunak yang dibangun pada skripsi ini digambarkan pada diagram \textit{use case}  \ref{fig:usecase}
 \begin{figure}[H]
 	\centering  
-	\includegraphics[scale=1]{Gambar/KIRI USECASE.jpeg}  
-	\caption[Alur Perangkat Lunak]{Alur Perangkat Lunak} 
+	\includegraphics[scale=0.8]{Gambar/KIRI USECASE.jpeg}  
+	\caption[Use Case Diagram]{Use Case Diagram} 
 	\label{fig:usecase} 
 \end{figure} 
 \subsection{Use Case Skenario}
@@ -137,30 +139,55 @@ Setiap fungsi yang ada pada diagram \textit{use case} dijelaskan dengan skenario
     \label{tab:skenario1}
 \end{table}
 
-\subsection{Diagram Kelas}
-\label{subsec:diagramKelas}
-Diagram kelas sederhana ini akan memberi gambaran besar mengenai aplikasi visualisasi data histori KIRI pada \textit{Google Maps}.
+\subsection{Data Flow Diagram}
+Interaksi data dalam perangkat lunak yang dibangun pada skripsi ini digambarkan pada \textit{data flow diagram} \ref{fig:dfd_0}
+\begin{figure}[H]
+	\centering  
+	\includegraphics[scale=0.4]{Gambar/DFD_0.png}  
+	\caption[Data Flow Diagram Level 0]{Data Flow Diagram Level 0} 
+	\label{fig:dfd_0} 
+\end{figure} 
 
+Pada level 0 ini dapat dilihat pada gambar \ref{fig:dfd_0}, perangkat lunak yang akan dibuat memiliki dua buah flow utama yaitu user dapat melakukan penyaringan data, dan user dapat menerima hasil penyaringan data dalam bentuk visualisasi pada \textit{google maps}. Setelah dilakukan pengujian lebih lanjut maka didapatkan \textit{data flow diagram level 1} \ref{fig:dfd_1}
 
 \begin{figure}[H]
 	\centering  
-	\includegraphics[scale=0.6]{Gambar/ClassDiagram.jpeg}  
-	\caption[Diagram Kelas Perangkat Lunak]{Diagram Kelas Perangkat Lunak} 
-	\label{fig:classdiagram} 
-\end{figure}
+	\includegraphics[scale=0.3]{Gambar/DFD_1.png}  
+	\caption[Data Flow Diagram Level 1]{Data Flow Diagram Level 1} 
+	\label{fig:dfd_1} 
+\end{figure} 
 
-Berikut adalah penjelasan dari kelas - kelas pada diagram kelas pada gambar\ref{fig:classdiagram}.
+Pada level 1 ini dapat dilihat pada gambar \ref{fig:dfd_1}, perangkat lunak akan memiliki dua buah proses utama yaitu:
 \begin{itemize}
-\item Kelas KiriHistori\\
-Kelas ini adalah kelas yang merepresentasikan model pada data histori KIRI. Kelas ini akan berguna untuk mengolah data histori KIRI.
-\item Kelas Utils\\
-Kelas ini adalah \textit{helper class} dimana akan berisi \textit{function - function} yang dibutuhkan untuk mengolah data histori KIRI.
-\item Kelas Route\\
-Kelas ini akan mengatur routing pada \textit{node.js}.
-\item Kelas Maps\\
-Kelas ini akan menggunakan \textit{google maps javascript api} untuk dapat memvisualisasikan data histori kiri.
-\item Index\\
-File ini akan betujuan untuk menampilkan objek \textit{map} dan hasil visualisasi data kedalam bentuk \textit{html}.
-\item Kelas Server\\
-Kelas ini yang akan menjadi kelas \textit{server} utama pada perangkat lunak.
+    \item Filter data proses untuk melakukan penyaringan data histori kiri berdasarkan \textit{query input} dari user.
+    \item Proses pembuatan object \textit{maps} proses yang akan menerima data histori KIRI dan membuat objek map menggunakan \textit{google maps javascript api}.
+\end{itemize}
+
+Berdasarkan \textit{data flow diagram } pada gambar \ref{fig:dfd_1}, pada perangkat lunak yang akan dibuat user dapat melakukan tiga buah aksi:
+
+\begin{enumerate}
+  \item Filter data histori KIRI user dapat memasukan filter parameter untuk melakukan proses penyaringan data histori KIRI, dan perangkat lunak akan melakukan proses penyaringan berdasarkan filter parameter yang dipilih user.
+  \item Select mode visualisasi user dapat memilih mode visualisasi pada perangkat lunak ini, akan disediakan dua mode visualisasi \textit{heatmap} dan \textit{marker clustering}.
+  \item Visualisasi data dengan google maps pada perangkat ini user akan menerima output berupa data yang telah tervisualisasi dengan google map.
+\end{enumerate}
+
+\subsection{Flow Chart Diagram}
+Alur perangkat lunak yang akan dibuat dapat digambarkan kedalam bentuk \textit{flow chart}  \ref{fig:fc}
+\begin{figure}[H]
+	\centering  
+	\includegraphics[scale=0.3]{Gambar/KIRI_Flow_Chart.png}  
+	\caption[KIRI Flow Chart]{KIRI Flow Chart} 
+	\label{fig:fc} 
+\end{figure} 
+
+
+\subsection{Input dan Output}
+Input dan output yang akan diterima oleh perangkat lunak yang akan dibuat adalah sebagai berikut.
+
+\begin{itemize}
+    \item Input Filter Parameter filter parameter adalah semua parameter yang  dapat dipilih user untuk dapat melakukan penyaringan data histori KIRI, pada perangkat lunak yang akan dibangun user dapat memilih tiga filter parameter.
+    
+    \item Input mode visualisasi pada perangkat lunak yang akan dibangun user dapat memilih dua mode visualisasi yaitu \textit{mode heatmap} dan \textit{mode markerclustering}.
+    
+    \item Output visualisasi data output pada perangkat lunak yang akan dibangun adalah hasil visualisasi data histori KIRI dalam bentuk \textit{marker clustering} atau bentuk \textit{heat map}.
 \end{itemize}
