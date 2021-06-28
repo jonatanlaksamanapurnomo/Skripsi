@@ -1,10 +1,10 @@
 \chapter{Perancangan}
 \label{chap:perancangan}
-Bab ini akan menjelaskan perancangan aplikasi visualisasi data histori KIRI pada google map
+Bab ini akan menjelaskan perancangan aplikasi visualisasi data histori KIRI pada Google Maps.
 
 \section{Perancangan Antarmuka}
 \label{sec:perancanganAntarmuka}
-Pada aplikasi, disediakan antarmuka untuk memudahkan pengguna dalam berinteraksi dengan perangkat lunak \ref{fig:antarmuka}.
+Pada aplikasi yang dibuat, disediakan antarmuka untuk memudahkan pengguna dalam berinteraksi dengan perangkat lunak. Berikut adalah Gambar \ref{fig:antarmuka} yang merupakan antarmuka dari perangkat lunak yang dibuat.
 
 \begin{figure}[H]
 	\centering  
@@ -13,7 +13,7 @@ Pada aplikasi, disediakan antarmuka untuk memudahkan pengguna dalam berinteraksi
 	\label{fig:antarmuka} 
 \end{figure}
 
-Berdasarkan rancangan diatas, berikut adalah fungsi dari setiap komponen dalam antarmuka:
+Berdasarkan rancangan diatas, berikut adalah fungsi dari setiap komponen dalam antarmuka.
 \begin{itemize}
 	\item \textit{Map}: digunakan untuk menampilkan peta \textit{google map}.
 	\item \textit{Checkbox Start}: untuk memfilter data berdasarkan tempat keberangkatan.
@@ -21,13 +21,13 @@ Berdasarkan rancangan diatas, berikut adalah fungsi dari setiap komponen dalam a
 	\item \textit{Selection Box Hours}: untuk memfilter data berdasarkan jam.
 	\item \textit{Selection Box Days}: untuk memfilter data berdasarkan hari.
 	\item \textit{Checkbox Heat Map}: untuk menampilkan data dalam bentuk \textit{heat map}.
-	\item \textit{Checkbox Marker Clustering} : untuk menampilkan data dalam bentuk \textit{marker clustering}.
+	\item \textit{Checkbox Marker Clustering}: untuk menampilkan data dalam bentuk \textit{marker clustering}.
 	\item Button \textit{Clear}: menghapus seluruh \textit{overlay} pada objek \textit{map}.
 \end{itemize}
 
 \section{Perancangan Diagram Fungsi}
 \label{sec:perancanganDiagramFungsi}
-Berdasarakan hasil analisis pada  \ref{sec:analisisKebutuhanPerangkatLunak}, maka untuk aplikasi ini dapat dibuat diagram fungsi seperti \ref{fig:diagramFungsi} 
+Berdasarakan hasil analisis pada  \ref{sec:analisisKebutuhanPerangkatLunak}, maka untuk aplikasi ini dapat dibuat diagram fungsi seperti Gambar \ref{fig:diagramFungsi}. 
 \begin{figure}[H]
 	\centering  
 	\includegraphics[scale=0.3]{Gambar/Kiri_functional_diagram.png}  
@@ -35,30 +35,34 @@ Berdasarakan hasil analisis pada  \ref{sec:analisisKebutuhanPerangkatLunak}, mak
 	\label{fig:diagramFungsi} 
 \end{figure}
 
-Aplikasi ini merupakan aplikasi berbasis website dimana akan memanfaatkan \textit{node.js} yang akan berperan sebagai \textit{asynchronous event-driven} \ref{sec:nodejs} Sehingga  backend logic dapat menggunakan \textit{javascript} tanpa menggunakan \textit{web browser}. Pada aplikasi ini terdiri dari tiga bagian yakni:
+Aplikasi ini merupakan aplikasi berbasis website dimana akan memanfaatkan \textit{Node.js} pada \ref{sec:nodejs} yang akan berperan sebagai \textit{asynchronous event-driven}, sehingga  backend logic dapat menggunakan \textit{javascript} tanpa menggunakan \textit{web browser}. Pada aplikasi ini terdiri dari tiga bagian yaitu:
 \label{sec:tigakomponenet}
 \begin{itemize}
-    \item Frontend pada bagian frontend terdiri dari \textit{web client} yang berfungsi untuk menerima input dan mengeluarkan output dari \textit{user}. Webclient akan berkomunikasi dengan \textit{backend} dengan menggunakan \textit{http request}.
+    \item \textit{Frontend} \\
+    Pada bagian \textit{Frontend} terdiri dari \textit{web client} yang berfungsi untuk menerima input dan mengeluarkan output dari \textit{user}. Webclient akan berkomunikasi dengan \textit{backend} dengan menggunakan \textit{http request}.
     
-    \item Backend akan menggunakan \textit{node.js} akan menerima input dari web client pada bagian ini juga akan dilakukan \textit{load} data histori kiri yang berbentuk csv untuk dapat diolah.
+    \item \textit{Backend} \\
+    Pada bagian \textit{Backend} akan menggunakan \textit{node.js} akan menerima input dari web client pada bagian ini juga akan dilakukan \textit{load} data histori kiri yang berbentuk csv untuk dapat diolah.
     
-    \item Google API aplikasi ini akan memanfaat \textit{google maps javascript api} untuk dapat memvisualisasikan data history KIRI.
+    \item Google API \\
+    Aplikasi ini akan memanfaat \textit{Google Maps Javascript API} untuk dapat memvisualisasikan data history KIRI.
 \end{itemize}
 
 \section{Perancangan Diagram Kapabilitas}
 \label{sec:kapabilitasDiagram}
-Berdasarkan kapabilitas dari masing masing komponen \ref{sec:tigakomponenet}, maka dapat dibuat diagram kapabilitas.
+Berdasarkan kapabilitas dari masing masing komponen pada \ref{sec:tigakomponenet}, maka dapat dibuat diagram kapabilitas.
 
 \subsection{Diagram Kapabilitas Web Client}
 \label{sec:webclientCapability}
-Pada bagian \textit{web client} akan memiliki kapabilitas:
+Pada bagian \textit{web client} akan memiliki kapabilitas sebagai berikut:
 \begin{itemize}
-    \item Menampilkan Google Map.
-    \item Menampilkan \textit{heatmap} atau \textit{marker clustering} object.
-    \item Menerima input dari user. Input dari user berupa parameter yang berguna untuk memfilter data histori kiri dan menampilkannya dalam bentuk \textit{heatmap} atau \textit{marker clustering}.
+    \item Menampilkan \textit{Google Maps}.
+    \item Menampilkan \textit{heatmap} atau \textit{marker clustering object}.
+    \item Menerima input dari user\\
+    Input dari user berupa parameter yang berguna untuk memfilter data histori kiri dan menampilkannya dalam bentuk \textit{heatmap} atau \textit{marker clustering}.
 \end{itemize}
 
-Berdasarkan kapabilitas \ref{sec:webclientCapability} maka dapat dibuat diagram yang berbentuk seperti \ref{fig:webclientcapabiltydiagram}
+Berdasarkan kapabilitas pada \ref{sec:webclientCapability} maka dapat dibuat diagram yang berbentuk seperti Gambar \ref{fig:webclientcapabiltydiagram}
 
 \begin{figure}[H]
 	\centering  
@@ -69,14 +73,14 @@ Berdasarkan kapabilitas \ref{sec:webclientCapability} maka dapat dibuat diagram 
 
 \subsection{Diagram Kapabilitas Backend}
 \label{sec:backendCapabilityDiagram}
-Pada aplikasi yang akan dibangun backend memiliki kapabilitas:
+Pada aplikasi yang akan dibangun, \textit{backend} memiliki kapabilitas sebagai berikut:
 \begin{itemize}
     \item Menerima \textit{input} dari \textit{web client}. Input yang diterima berupa filter parameter yang telah diolah oleh \textit{web client}.
     \item Melakukan filterisasi data berdasarkan \textit{input parameter} dari \textit{web client}.
-    \item Melakukan komunikasi \textit{via http request} terhadap \textit{google api}.
+    \item Melakukan komunikasi \textit{via http request} terhadap \textit{Google API}.
 \end{itemize}
 
-Berdasarkan kapabilitas \ref{sec:backendCapabilityDiagram} maka dapat dibuat diagram yang berbentuk seperti \ref{fig:backendCapabilityDiagram}
+Berdasarkan kapabilitas \ref{sec:backendCapabilityDiagram} maka dapat dibuat diagram yang berbentuk seperti Gambar \ref{fig:backendCapabilityDiagram}.
 
 \begin{figure}[H]
 	\centering  
@@ -87,12 +91,12 @@ Berdasarkan kapabilitas \ref{sec:backendCapabilityDiagram} maka dapat dibuat dia
 
 \subsection{Diagram Kapabilitas Google API}
 \label{sec:googleCapabilityDiagram}
-Pada aplikasi ini akan menggunakan \textit{google maps javascript api} sebagai \textit{third party library} dalam menampilkan hasil visualisasi data yang dilakukan oleh \textit{backend}. \textit{Google Maps Javascript API} pada perangkat lunak ini memiliki kapabilitas antara lain:
+Pada aplikasi ini akan menggunakan \textit{Google Maps Javascript API} sebagai \textit{third party library} dalam menampilkan hasil visualisasi data yang dilakukan oleh \textit{backend}. \textit{Google Maps Javascript API} pada perangkat lunak ini memiliki kapabilitas sebagai berikut:
 \begin{itemize}
-    \item Menerima \textit{input} dari \textit{Backend}. Input yang diterima berupa data histori kiri yang telah disaring sesuai dengan  \textit{input} dari user.
-    \item Mengeluarkan \textit{output} berupa objek \textit{map} yang akan dirender oleh \textit{web client}. Objek \textit{map} dapat berupa \textit{marker cluster} objek atau \textit{heatmap} objek tergantung pada input yang diterima dari \textit{backend}.
+    \item Menerima \textit{input} dari \textit{Backend}. Input yang diterima berupa data histori KIRI yang telah disaring sesuai dengan  \textit{input} dari user.
+    \item Mengeluarkan \textit{output} berupa \textit{object map} yang akan dirender oleh \textit{web client}. \textit{Object map} dapat berupa \textit{marker cluster object} atau \textit{heatmap object} tergantung pada input yang diterima dari \textit{backend}.
 \end{itemize}
-Berdasarkan kapabilitas \ref{sec:googleCapabilityDiagram} maka dapat dibuat diagram yang berbentuk seperti \ref{fig:googleCapabilityDiagram}
+Berdasarkan kapabilitas pada \ref{sec:googleCapabilityDiagram}, maka dapat dibuat diagram yang berbentuk seperti Gambar \ref{fig:googleCapabilityDiagram}.
 
 \begin{figure}[H]
 	\centering  
@@ -101,31 +105,30 @@ Berdasarkan kapabilitas \ref{sec:googleCapabilityDiagram} maka dapat dibuat diag
 	\label{fig:googleCapabilityDiagram} 
 \end{figure}
 
-\section{Perancangan Diagram Interaksi}
-Pada subbab ini akan dijelaskan interaksi antar komponen yang  sesuai dengan yang dijelaskan pada subbab \ref{sec:deskripsiPL}, dengan diagram interkasi untuk setiap fitur pada aplikasi visualisasi data histori kiri.
+\section{Perancangan Diagram Sequence}
+Pada subbab ini akan dijelaskan interaksi antar komponen yang  sesuai dengan yang dijelaskan pada subbab \ref{sec:deskripsiPL}, dengan diagram interaksi untuk setiap fitur pada aplikasi visualisasi data histori KIRI.
 
 
 \begin{figure}[H]
 	\centering  
 	\includegraphics[scale=0.3]{Gambar/Kiri_Sequence_Diagram.png}  
-	\caption[Rancangan Diagram Interaksi]{Diagram Interaksi Visualisasi Data Histori Kiri} 
+	\caption[Rancangan Diagram Interaksi]{Diagram Sequence Visualisasi Data Histori KIRI} 
 	\label{fig:interactionDiagram} 
 \end{figure}
 
-Fitur pada perangkat lunak ini akan diawali dengan user dapat memilih \textit{input filter}. \textit{Input filter} yang dapat dipilih adalah filter berdasarkan atribut \textit{start} atau \textit{finish}, \textit{days}, dan \textit{time}. Setelah filter option dipilih oleh user maka \textit{web client} akan mengubah hasil option tersebut menjadi \textit{filter params}, \textit{filter params} adalah sebuah objek yang akan digunakan oleh \textit{backend logic} untuk melakukan proses \textit{filter} terhhadap data histori KIRI. Setelah \textit{backend logic} menerima \textit{filter params} maka proses \textit{filter} akan dilakukan sesuai dengan isi dari \textit{filter params}, aksi ini akan menghasilkan data histori kiri yang sudah disaring sesuai dengan isi dari \textit{filter params}. \textit{Backend logic} akan mengirimkan hasil data disaring tersebut ke \textit{google maps javascript api} dengan lalu \textit{google maps javascript api} akan mengeluarkan maps object berdasarkan data yang dikirim oleh \textit{backend logic}. Data tersebut akan ditampilkan kembali oleh \textit{web client} dalam bentuk data visualisasi menggunakan \textit{google map}.
+Fitur pada perangkat lunak ini akan diawali dengan user dapat memilih \textit{input filter}. \textit{Input filter} yang dapat dipilih adalah filter berdasarkan atribut \textit{start} atau \textit{finish}, \textit{days}, dan \textit{time}. Setelah filter \textit{options} dipilih oleh user maka \textit{web client} akan mengubah hasil \textit{options} tersebut menjadi \textit{filter params}. \textit{Filter params} adalah sebuah objek yang akan digunakan oleh \textit{backend logic} untuk melakukan proses \textit{filter} terhadap data histori KIRI. Setelah \textit{backend logic} menerima \textit{filter params}, maka proses \textit{filter} akan dilakukan sesuai dengan isi dari \textit{filter params}. Aksi ini akan menghasilkan data histori KIRI yang sudah disaring sesuai dengan isi dari \textit{filter params}. \textit{Backend logic} akan mengirimkan hasil data yang telah disaring tersebut ke \textit{Google Maps Javascript API} dengan lalu \textit{Google Maps Javascript API} akan mengeluarkan maps object berdasarkan data yang dikirim oleh \textit{backend logic}. Data tersebut akan ditampilkan kembali oleh \textit{web client} dalam bentuk data visualisasi menggunakan \textit{Google Maps}.
 
 
 \section{Perancangan Pseudocode}
 \label{sec:psudeoCode}
-Pada subbab ini dirancang \textit{pseudocode} untuk membuat aplikasi visualisasi data histori KIRI. \textit{Pseudocode} yang dibuat akan mengacu pada kapabilitas setiap komponent \ref{sec:kapabilitasDiagram}.
+Pada subbab ini dirancang \textit{pseudocode} untuk membuat aplikasi visualisasi data histori KIRI. \textit{Pseudocode} yang dibuat akan mengacu pada kapabilitas setiap komponen pada \ref{sec:kapabilitasDiagram}.
 
 \subsection{Perancangan Pseudocode Pada Web Client}
 \label{sec:psudeoCodeWebClient}
-Berdasarkan kapabilitasnya  \ref{sec:webclientCapability}. Pseudocode dapat dibuat berdasarkan dua fungsi utama yakni:
+Berdasarkan kapabilitasnya  pada \ref{sec:webclientCapability}, pseudocode dapat dibuat berdasarkan dua fungsi utama yaitu:
 \begin{itemize}
-    \item Handling User Input. Pada tahap ini web client akan menerina input dari user dan akan mengubah nya menjadi \textit{filter params}.
-    \item Menampilkan data histori kiri dengan menggunakan \textit{google maps}.
-    
+    \item Handling User Input. Pada tahap ini\textit{ web client} akan menerina input dari user dan akan mengubah nya menjadi \textit{filter params}.
+    \item Menampilkan data histori KIRI dengan menggunakan \textit{Google Maps}.
 \end{itemize} 
 
 \begin{table}[H]
@@ -161,7 +164,7 @@ Berdasarkan kapabilitasnya  \ref{sec:webclientCapability}. Pseudocode dapat dibu
     \end{tabular}
 \end{table}
 
-\textbf{Pseudocode} untuk aksi \ref{sec:psudeoCodeWebClient} dapat digambarkan seperti:
+\textbf{Pseudocode} untuk aksi \ref{sec:psudeoCodeWebClient} dapat digambarkan seperti berikut:
 \begin{algorithm}
 \caption{Handle User Input}\label{euclid}
 \begin{algorithmic}[1]
@@ -193,7 +196,7 @@ Berdasarkan kapabilitasnya  \ref{sec:webclientCapability}. Pseudocode dapat dibu
         Aksi memerlukan input antara lain 
         \begin{itemize}
             \item Selected \textit{map type}. tipe \textit{map} yang dapat dipilih user adalah \textit{heat map} atau \textit{marker clustering}.
-            \item Objek \textit{map} yang telah dikirimkan oleh \textit{google maps javascript api}.
+            \item Objek \textit{map} yang telah dikirimkan oleh \textit{Google Maps Javascript API}.
         \end{itemize}
        \\
        \hline
@@ -222,7 +225,7 @@ Berdasarkan kapabilitasnya  \ref{sec:webclientCapability}. Pseudocode dapat dibu
 
 
 \subsubsection{Perancangan Pseudocode Pada Backend Server}
-Berdasarkan kapabilitasnya \ref{sec:backendCapabilityDiagram}.  Pseudocode dapat dibuat berdasarkan dua fungsi utama yakni:
+Berdasarkan kapabilitas pada \ref{sec:backendCapabilityDiagram}, pseudocode dapat dibuat berdasarkan dua fungsi utama yaitu:
 \begin{itemize}
     \item Handling load data histori KIRI.
     \item Handling filter data histori KIRI.
@@ -263,7 +266,7 @@ Berdasarkan kapabilitasnya \ref{sec:backendCapabilityDiagram}.  Pseudocode dapat
 \State $\textit{data} \gets \text{fs.readFile("KiriHistory.csv")}$
 \State \Return $\textit{data}$
 \EndIf
-\EndProcedure
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
 
@@ -296,14 +299,14 @@ Berdasarkan kapabilitasnya \ref{sec:backendCapabilityDiagram}.  Pseudocode dapat
 \end{table}
 
 
-\begin{algorithm}[htbp]
-\caption{Filter Data}
-\begin{algorithmic}[1]
-\Function{filterData}{filterParams}
-\State $\textit{data} \gets \text{array of objects}$
-\State $\textit{data} \gets \text{data.filter(filterParams)}$
-\State \Return $\textit{data}$
-\EndIf
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
+% \begin{algorithm}[htbp]
+% \caption{Filter Data}
+% \begin{algorithmic}[1]
+% \Function{filterData}{filterParams}
+% \State $\textit{data} \gets \text{array of objects}$
+% \State $\textit{data} \gets \text{data.filter(filterParams)}$
+% \State \Return $\textit{data}$
+% \EndIf
+% \EndFunction
+% \end{algorithmic}
+% \end{algorithm}

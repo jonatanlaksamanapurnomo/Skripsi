@@ -2,14 +2,14 @@
 
 \chapter{Landasan Teori}
 \label{chap:teori}
-Pada bab ini dijelaskan dasar-dasar teori mengenai KIRI website, JSON, CSV, dan \textit{Google Maps Javascript API}
+Pada bab ini dijelaskan dasar-dasar teori mengenai KIRI website, JSON, CSV, dan \textit{Google Maps Javascript API.}
 
 \section{KIRI Website }
 \label{sec:KIRI} 
 KIRI adalah aplikasi navigasi angkutan umum berbasis web yang melayani Bandung dan kota-kota lain di Indonesia.\cite{pascal:17:KIRI}.
-Pada awal pembuatannya KIRI dibuat untuk tujuan komersial. Namun karena dinilai kurang sukses projek KIRI sekarang menjadi open source projek yang dapat di akses. Aplikasi KIRI memiliki beberapa fitur sebagai berikut:
+Pada awal pembuatannya KIRI ditujukan untuk penggunaan komersial, namun karena dinilai kurang sukses \textit(project) KIRI sekarang menjadi \textit(project) \textit{open source}. Aplikasi KIRI memiliki beberapa fitur seperti:
 
-\begin{enumerate}
+\begin{itemize}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{Gambar/KIRI.png}
@@ -19,51 +19,45 @@ Pada awal pembuatannya KIRI dibuat untuk tujuan komersial. Namun karena dinilai 
 	\item Pemilihan rute tercepat menggunakan angkutan kota. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna merah.
 	\item Memiliki fitur multi bahasa. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna oranye. 
 	\item Dapat menampilkan instruksi lengkap  mencapai tujuan. Dapat dilihat pada gambar \ref{fig:kiri_fitur} pada kotak berwarna biru.
-\end{enumerate}
+\end{itemize}
  
-
-
-
-
-   
 \section{CSV}
 \label{subsec:csv}
-CSV (\textit{Comma Separated Values}) adalah format penyajian data yang sudah umum digunakan pada progam \textit{spreadsheet}, CSV memiliki format memisahkan setiap value dengan simbol titik koma (;) dan menggunakan baris baru sebagai penanda pemisah antar element data\cite{RFC:4180}.
+CSV (\textit{Comma Separated Values}) adalah format penyajian data  dengan cara memisahkan setiap \textit{value} dengan simbol titik koma(;) dan menggunakan baris baru sebagai penanda pemisah antar elemen data\cite{RFC:4180}.
 
 \subsection{CSV Format}
-Tidak ada spesifikasi \textit{formal} dalam penulisan csv. Format csv yang akan dituliskan pada dokumen ini adalah format yang paling banyak diimplementasikan:
+Tidak ada spesifikasi formal dalam penulisan csv. Format csv yang paling banyak diimplementasikan adalah sebagai berikut:
 
 \begin{itemize}
-    \item Setiap field diletakan pada baris terpisah dan dipisahkan oleh \textit{line break (CLRF)}, contoh:
+    \item Setiap field diletakan pada baris terpisah dan dipisahkan oleh \textit{line break (CLRF)}, contohnya adalah sebagai berikut:
     \begin{lstlisting}
           aaa,bbb,ccc CRLF
           zzz,yyy,xxx CRLF
     \end{lstlisting}
-    \item \textit{Field} terakhir pada format csv tidak harus menggunakan \textit{line break (CLRF)}, contoh:
+    \item \textit{Field} terakhir pada format csv tidak harus menggunakan \textit{line break (CLRF)}, contohnya adalah sebagai berikut:
         \begin{lstlisting}
           aaa,bbb,ccc CRLF
           zzz,yyy,xxx 
     \end{lstlisting}
-    \item Memungkinkan adanya eksternal \textit{header} yang memiliki aturan penulisan yang sama dengan element pada csv. Nilai pada eksternal \textit{header} akan mewakili nama yang tercantum pada \textit{field} jumlah eksternal \textit{header} harus sama dengan jumlah kolom pada normal record, contoh:
+    \item Memungkinkan adanya eksternal \textit{header} yang memiliki aturan penulisan yang sama dengan elemen pada csv. Nilai pada eksternal \textit{header} akan mewakili nama yang tercantum pada \textit{field} jumlah eksternal \textit{header} harus sama dengan jumlah kolom pada normal \textit{record}, contohnya adalah sebagai berikut:
     \begin{lstlisting}
        field_name,field_name,field_name CRLF
        aaa,bbb,ccc CRLF
        zzz,yyy,xxx CRLF
-
     \end{lstlisting}
     
-    \item Memungkinkan ada satu atau lebih \textit{field} yang dipisahka oleh koma (,). Setiap baris harus memiliki jumlah \textit{field} yang sama pada satu \textit{file}. Spasi dianggap sebuah element pada \textit{field} yang tidak dapat diabaikan. Pada field terkahir sebuah baris tidak boleh diberikan simbol koma (,), contoh:
+    \item Memungkinkan ada satu atau lebih \textit{field} yang dipisahka oleh koma (,). Setiap baris harus memiliki jumlah \textit{field} yang sama pada satu \textit{file}. Spasi dianggap sebuah element pada \textit{field} yang tidak dapat diabaikan. Pada \textit{field} terakhir sebuah baris tidak boleh diberikan simbol koma (,), contohnya adalah sebagai berikut:
     \begin{lstlisting}
        aaa,bbb,ccc
     \end{lstlisting}
     
-    \item Setiap \textit{Field} bisa menggunakan simbol \textit{double quotes}. Jika \textit{field} tidak menggunakan simbol \textit{double quotes} maka \textit{double quotes} tidak akan ditampilkan pada \textit{fields}
+    \item Setiap \textit{Field} bisa menggunakan simbol \textit{double quotes}. Jika \textit{field} tidak menggunakan simbol \textit{double quotes} maka \textit{double quotes} tidak akan ditampilkan pada \textit{fields.} Contohnya adalah sebagai berikut: 
     \begin{lstlisting}
       "aaa","bbb","ccc" CRLF
        zzz,yyy,xxx
     \end{lstlisting}
     
-    \item Jika simbol \textit{double quotes} meruapakan salah satu elemn pada \textit{field}, Maka simbol \textit{double quotes} tersebut harus diescape dengan memberikan simbol \textit{double quotes} lain didalam \textit{field} tersebut, contoh:
+    \item Jika simbol \textit{double quotes} meruapakan salah satu elemn pada \textit{field}, Maka simbol \textit{double quotes} tersebut harus diescape dengan memberikan simbol \textit{double quotes} lain didalam \textit{field} tersebut, contoh adalah sebagai berikut:
     \begin{lstlisting}
       "aaa","b""bb","ccc"
     \end{lstlisting}
@@ -101,7 +95,7 @@ Tidak ada spesifikasi \textit{formal} dalam penulisan csv. Format csv yang akan 
 
 \section{Node.js}
 \label{sec:nodejs}
-\textit{Node.js} merupakan \textit{asynchronous event-driven JavaScript runtime}. Dengan menggunakan Node.js memungkinkan untuk menjalankan perintah \textit{javascript} tanpa menggunakan \textit{web browser}, \textit{Node.js} memungkinkan untuk menjalankan dan melakukan \textit{server-side scripting}\cite{Nodejs:01:about}. \textit{Node.js} didesain untuk membuat \textit{network applications} yang \textit{scaleable}. Berikut ini contoh syntax \textit{Node.js}:
+\textit{Node.js} merupakan \textit{asynchronous event-driven JavaScript runtime}. Dengan menggunakan Node.js memungkinkan untuk menjalankan perintah \textit{javascript} tanpa menggunakan \textit{web browser}, \textit{Node.js} memungkinkan untuk menjalankan dan melakukan \textit{server-side scripting}\cite{Nodejs:01:about}. Berikut ini adalah contoh sintaks \textit{Node.js}:
 
 \begin{lstlisting}
 const http = require('http');
@@ -121,8 +115,8 @@ server.listen(port, hostname, () => {
 \end{lstlisting}
 
 
-\subsection{Struktur File Node.js Project}
-	Pada saat membuat projek baru, Node.js membuat \textit{file-file} dasar secara otomatis. \textit{File-file} tersebut memiliki fungsi tersendiri. Folder \textit{node\_modules} berfungsi sebagai penyimpanan semua \textit{library} yang diinstal melalui npm. Semua \textit{library} yang diinstall melalui npm akan dicatat pada file \textit{package.json}, Hal ini bertujuan untuk mempermudah proses \textit{maintence library} pada projek \textit{node.js}.
+\subsection{Struktur File Node.js \textit(project)}
+\textit{	Node.js} secara otomatis dapat membuat \textit{file-file} dasar. \textit{File-file} tersebut memiliki fungsi tersendiri. Folder \textit{node\_modules} berfungsi sebagai penyimpanan semua \textit{library} yang diinstall melalui npm. Semua \textit{library} yang diinstall melalui npm akan dicatat pada file \textit{package.json}, Hal ini bertujuan untuk mempermudah proses \textit{maintence library} pada \textit(project) \textit{node.js}.
 	
 	Struktur dari \textit{file-file} akan berbentuk seperti:
         	\dirtree{%
@@ -134,8 +128,9 @@ server.listen(port, hostname, () => {
         }
 
 
+
 \subsection{\textit{Node Package Manager}}
-\textit{Node Package Manager}(NPM) adalah \textit{software registry} yang dimiliki oleh \textit{Node.js}, NPM memungkinkan pengguna untuk mempublikasi atau menggunakan \textit{software library}\cite{npmjs:01:about}. NPM terdiri dari tiga komponen penting yaitu:
+\textit{Node Package Manager} (NPM) adalah \textit{software registry} yang dimiliki oleh \textit{Node.js}. NPM memungkinkan pengguna untuk mempublikasi atau menggunakan \textit{software library}\cite{npmjs:01:about}. NPM terdiri dari tiga komponen penting yaitu:
 \begin{itemize}
     \item NPM website.
     \item NPM CLI ( \textit{Command Line Interface}). 
@@ -150,15 +145,15 @@ NPM memiliki beberapa kegunaan antara lain:
 \end{itemize}
 
 \subsection{NPM CLI}
-\textit{NPM} akan terinstall secara otomatis pada perangkat keras ketika menambahkan node.js. Untuk mempermudah proses pembuatan perangkat lunak, Penggunaan \textit{Command Line Interface} (CLI) akan menjadi salah satu \textit{point} penting. NPM memiliki tiga komponen utama dalam penulisan perintah CLI, Komponen ini akan berbentuk seperti:
+NPM akan terinstall secara otomatis pada perangkat keras ketika menambahkan \textit{node.js}. Untuk mempermudah proses pembuatan perangkat lunak, Penggunaan \textit{Command Line Interface} (CLI) akan menjadi salah satu \textit{point} penting. NPM memiliki tiga komponen utama dalam penulisan perintah CLI, komponen ini akan berbentuk seperti:
 \begin{verbatim}
     npm <command> [args]
 \end{verbatim}
-\textit {NPM CLI} memiliki perintah-perintah yang dapat digunakan untuk membantu melakukan \textit{maintenance} terhadap \textit{library} pada projek \textit{node.js}. Berikut perintah-perintah pada \textit{npm cli}:
+NPM CLI memiliki perintah-perintah yang dapat digunakan untuk membantu melakukan \textit{maintenance} terhadap \textit{library} pada \textit(project) \textit{node.js}. Berikut perintah-perintah pada NPM CLI:
 
 \begin{itemize}
     \item Command untuk menginisialisasi \textit{npm package} file dapat menggunakan perintah:
-    \begin{lstlisting}
+    \begin{lstlisting}[style=htmlcssjs]
       npm init [--force|-f|--yes|-y|--scope]
       npm init <@scope> (same as `npx <@scope>/create`)
       npm init [<@scope>/]<name> (same as `npx [<@scope>/]create-<name>`)
@@ -192,18 +187,18 @@ NPM memiliki beberapa kegunaan antara lain:
 \end{itemize}
 
 
-\section{\textit{Expressjs}}
+\section{\textit{Express.js}}
 \textit{Express.js} merupakan \textit{web application framework} untuk \textit{node.js}. \textit{Express.js} menyediakan \textit{robust feature} dalam pembuatan  perangkat lunak berbentuk situs web maupun perangkat begerak\cite{expressjs:01:about}. 
 
 \subsection{Instalasi}
-\textit{Express.js} dapat diinstal dengan menggunakan npm. Untuk menambahkan \textit{package express.js} dapat menggunakan perintah:
+\textit{Express.js} dapat diinstall dengan menggunakan npm. Untuk menambahkan \textit{package express.js} dapat menggunakan perintah:
 \begin{verbatim}
     npm install express --save
 \end{verbatim}
-Ketika menjalankan perintah diatas maka secara otomatis akan menambahkan \textit{library express.js} yang akan disimpan pada \textit{folder} \textit{package.json}.
+Ketika menjalankan perintah di atas maka secara otomatis akan menambahkan \textit{library express.js} yang akan disimpan pada \textit{folder} \textit{package.json}.
 
 \subsection{Struktur File Express.js}
-\textit{Express.js} tidak memberikan aturan baku dalam penyusunan struktur file dalam pengembangan perangkat lunak. namun \textit{express.js} menyediakan \textit{application generator} yang disebut \textit{express generator} untuk mempermudah pihak pengembang dalam pembuatan perangkat lunak\cite{expressjs:01:about}. Untuk dapat menggunakan \textit{express generator} pengembang harus menambahkan \textit{library} \textit{express generator} melalui npm dengan menggunakan perintah:
+\textit{Express.js} tidak memberikan aturan baku dalam penyusunan struktur file dalam pengembangan perangkat lunak. namun \textit{Express.js} menyediakan \textit{application generator} yang disebut \textit{express generator} untuk mempermudah pihak pengembang dalam pembuatan perangkat lunak\cite{expressjs:01:about}. Untuk dapat menggunakan \textit{express generator} pengembang harus menambahkan \textit{library} \textit{express generator} melalui npm dengan menggunakan perintah sebagai berikut:
 
 \begin{verbatim}
     npx express-generator
@@ -231,16 +226,16 @@ Secara otomatis \textit{express} akan menghasilkan sebuah folder yang memiliki s
 \subsection{Routing}
 \textit{Routing} adalah proses untuk menentukan cara perangkat lunak merespon \textit{input} melalui beberapa \textit{endpoint}. Dalam pembuatan \textit{routing} pada \textit{express.js} terdapat empat komponen penting yaitu:
 \begin{itemize}
-    \item Instansi dari \textit{express.js} (app).
-    \item \textit{Method} \textit{http method}.
+    \item Instansi dari \textit{Express.js} (app).
+    \item \textit{Http method}.
     \item \textit{Path}
     \item Perintah yang akan dijalankan jika \textit{route} dijalankan \textit{Handler}.
 \end{itemize}
-Pembuatan \textit{routing} pada \textit{express.js} memiliki struktur perintah sebagai berikut:
+Pembuatan \textit{routing} pada \textit{Express.js} memiliki struktur perintah sebagai berikut:
 \begin{verbatim}
     app.METHOD(PATH, HANDLER)
 \end{verbatim}
-Berikut ini beberapa contoh perintah pembuatan \textit{route} pada \textit{express.js}
+Berikut ini beberapa contoh perintah pembuatan \textit{route} pada \textit{Express.js}
 \begin{lstlisting}
     app.get('/', function (req, res) {
       res.send('Hello World!')
@@ -260,7 +255,8 @@ Berikut ini beberapa contoh perintah pembuatan \textit{route} pada \textit{expre
 \end{lstlisting}
 
 \subsection{Menampilkan File Statis}
-Untuk dapat menampilkan \textit{file} yang bersifat statis seperti foto, \textit{javascript}, dan \textit{css}, \textit{express.js} telah menyediakan objek \begin{verbatim}
+Untuk dapat menampilkan \textit{file} yang bersifat statis seperti foto, \textit{javascript}, dan \textit{css}, \textit{Express.js} telah menyediakan \textit{object} sebagai berikut:
+\begin{verbatim}
     express.static(root, [options])
 \end{verbatim}[] 
 Parameter \textit{root} menandakan \textit{root directory} untuk menampilkan \textit{file} statis. Contoh perintah untuk menampilkan \textit{file} statis:
@@ -268,7 +264,7 @@ Parameter \textit{root} menandakan \textit{root directory} untuk menampilkan \te
 \begin{lstlisting}
 app.use('/static', express.static('public'))
 \end{lstlisting}
-Parameter '/static' berutujuan untuk membuat \textit{virtual path} yang memiliki \textit{prefix}  '/static', sedangkan parameter'public' menandakan bahwa \textit{file} statis berada didalam \textit{folder public}. Perintah diatas ketika dijalankan maka \textit{express} akan secara otomatis membuat \textit{route} seperti:
+Parameter '\textit{/static}' berutujuan untuk membuat \textit{virtual path} yang memiliki \textit{prefix}  '\textit{/static}', sedangkan parameter '\textit{public}' menandakan bahwa \textit{file} statis berada didalam \textit{folder public}. Perintah diatas ketika dijalankan maka \textit{Express.js} akan secara otomatis membuat \textit{route} seperti berikut yang dapat digunakan untuk mengakses \textit{file} statis.
 \begin{lstlisting}
 http://localhost:3000/static/images/kitten.jpg
 http://localhost:3000/static/css/style.css
@@ -276,12 +272,11 @@ http://localhost:3000/static/js/app.js
 http://localhost:3000/static/images/bg.png
 http://localhost:3000/static/hello.html
 \end{lstlisting}
-yang dapat digunakan untuk mengakses \textit{file} statis.
 
 	
 \section{Google Maps Javascript API}
 \label{sec:googlemaps}
-Pada subbab ini akan menjelaskan tentang \textit{google maps javascript api} beserta kelas-kelas yang dimilikinya. Google Maps adalah layanan pemetaan web yang dikembangkan oleh Google. Menawarkan citra satelit, foto udara, dan peta jalan yang interaktif, kondisi lalu lintas secara \textit{real time}. Dalam pengembangannya \textit{google maps} memiliki akses pendukung untuk bahasa pemrograman \textit{javascript}. Berikut ini beberapa layanan yang telah disediakan oleh \textit{google maps javascript api\cite{googlemaps:01:refrence}}:
+Pada subbab ini akan menjelaskan tentang \textit{Google Maps Javascript API} beserta kelas-kelas yang dimilikinya. \textit{Google Maps} adalah layanan pemetaan web yang dikembangkan oleh \textit{Google}. \textit{Google Maps} menawarkan citra satelit, foto udara, dan peta jalan yang interaktif, kondisi lalu lintas secara \textit{real time}. Dalam pengembangannya, \textit{Google Maps} memiliki akses pendukung untuk bahasa pemrograman \textit{Javascript}. Berikut ini beberapa layanan yang telah disediakan oleh \textit{Google Maps javascript API\cite{googlemaps:01:refrence}}:
 
 \begin{itemize}
     \item \textit{Maps}.
@@ -291,19 +286,19 @@ Pada subbab ini akan menjelaskan tentang \textit{google maps javascript api} bes
 \end{itemize}
 
 \subsection{Map}
-\textit{Map} adalah sebuah objek pada \textit{google maps javascript api} yang digunakan untuk membuat objek \textit{map} didalam \textit{html} elemen. Untuk dapat menginisialisasi objek \textit{map} pengembang harus dapat menggunakan constructor yang memiliki perintah:
+\textit{Map} adalah sebuah \textit{object} pada \textit{Google Maps Javascript API} yang digunakan untuk membuat \textit{object} \textit{map} dalam elemen \textit{html}. Untuk dapat menginisialisasi \textit{object} \textit{map}, pengembang harus dapat menggunakan \textit{constructor} yang memiliki perintah sebagai berikut:
 \begin{lstlisting}
     Map(mapDiv[, opts])
     Parameters: 
     mapDiv:  Element
     opts:  MapOptions optional
 \end{lstlisting}
-Pada \textit{constructor} diatas terdapat dua paramete:
+Pada \textit{constructor} diatas terdapat dua parameter:
 \begin{itemize}
     \item mapDiv.
     \item MapOptions
 \end{itemize}
-\textit{MapDiv} adalah elemen html dimana objek map akan diinisialisasi, parameter ini bersifat wajib. MapOptions adalah sebuah objek yang dapat digunakan untuk mengatur \textit{property} yang dimiliki oleh objek \textit{map}. Berikut ini adalah contoh menginisialisasi objek \textit{map}:
+\textit{MapDiv} adalah elemen html dimana \textit(object map) akan diinisialisasi, parameter ini bersifat wajib. \textit{MapOptions} adalah sebuah \textit{object} yang dapat digunakan untuk mengatur \textit{property} yang dimiliki oleh \textit{object} \textit{map}. Berikut ini adalah contoh menginisialisasi \textit{object} \textit{map}:
 \begin{lstlisting}
     function initMap() {
         let mapOptions = {
@@ -314,12 +309,12 @@ Pada \textit{constructor} diatas terdapat dua paramete:
     return map;
     }
 \end{lstlisting}
-Ketika fungsi \textit{initMap()} dijalankan maka \textit{google maps javascript api} akan membuat objek map didalam \textit{html dom} yang memiliki id='map' dan akan mengatur \textit{property} yang dimiliki sesuai dengan objek \textit{mapOptions}.
+Ketika fungsi \textit{initMap()} dijalankan maka \textit{Google Maps Javascript API} akan membuat \textit{object} map didalam \textit{html dom} yang memiliki id='map' dan akan mengatur \textit{property} yang dimiliki sesuai dengan \textit{object} \textit{mapOptions}.
 
-Objek \textit{map} telah menyediakan fungsi-fungsi yang bisa langsung digunakan oleh pengembang, beberapa fungsi yang disediakan oleh  objek \textit{map} adalah:
+\textit{Object} \textit{map} telah menyediakan fungsi-fungsi yang bisa langsung digunakan oleh pengembang, beberapa fungsi yang disediakan oleh  \textit{object} \textit{map} adalah:
 
 \begin{itemize}
-    \item Fungsi \textit{fitBounds}  berguna untuk menentukan \textit{view port} dari objek \textit{map} sesuai dengan \textit{bounds} yang diberikan. Fungsi ini memiliki struktur perintah seperti:
+    \item Fungsi \textit{fitBounds()}  berguna untuk menentukan \textit{view port} dari \textit{object} \textit{map} sesuai dengan \textit{bounds} yang diberikan. Fungsi ini memiliki struktur perintah seperti berikut:
     \begin{lstlisting}
         fitBounds(bounds[, padding])
         Parameters: 
@@ -327,50 +322,50 @@ Objek \textit{map} telah menyediakan fungsi-fungsi yang bisa langsung digunakan 
         padding:  number|Padding optional
         Return Value:  None
     \end{lstlisting}
-    \item Fungsi \textit{getBounds}  berguna untuk mendapatkan \textit{view port} dari objek \textit{map}. Fungsi ini memiliki struktur perintah seperti:
+    \item Fungsi \textit{getBounds()}  berguna untuk mendapatkan \textit{view port} dari \textit{object} \textit{map}. Fungsi ini memiliki struktur perintah seperti berikut:
     \begin{lstlisting}
         getBounds()
         Parameters:  None
         Return Value:  LatLngBounds
     \end{lstlisting}
-    \item Fungsi \textit{getCenter}  berguna untuk mendapatkan posisi yang ditunjukan pada objek \textit{map} posisi yang didapatkan akan berbentuk \textit{longtitude dan langtitude}. Fungsi ini memiliki struktur perintah seperti:
+    \item Fungsi \textit{getCenter()}  berguna untuk mendapatkan posisi yang ditunjukan pada \textit{object} \textit{map} posisi yang didapatkan akan berbentuk \textit{longtitude dan langtitude}. Fungsi ini memiliki struktur perintah seperti berikut:
     \begin{lstlisting}
         getCenter()
         Parameters:  None
         Return Value:  LatLng
     \end{lstlisting}
-    \item Fungsi \textit{getClickableIcons} berguna untuk mendapatkan \textit{clickable icon} setiap \textit{clickable icon} merupakan \textit{point of interest} pada \textit{map} . Fungsi ini memiliki struktur perintah seperti:
+    \item Fungsi \textit{getClickableIcons()} berguna untuk mendapatkan \textit{clickable icon}. Setiap \textit{clickable icon} merupakan \textit{point of interest} pada \textit{map}. Fungsi ini memiliki struktur perintah seperti berikut:
     \begin{lstlisting}
         getClickableIcons()
         Parameters:  None
         Return Value:  boolean
     \end{lstlisting}
-    \item Fungsi \textit{getMapTypeId} beguna untuk mendapatkan \textit{id} dari jenis \textit{map} yang digunakan . Fungsi ini memiliki struktur perintah seperti:
+    \item Fungsi \textit{getMapTypeId()} beguna untuk mendapatkan \textit{id} dari jenis \textit{map} yang digunakan. Fungsi ini memiliki struktur perintah seperti:
     \begin{lstlisting}
         getMapTypeId()
         Parameters:  None
         Return Value:  MapTypeId|string
     \end{lstlisting}
-    \textit{Google Maps Javascript API} menyediakan variabel konsanta / \textit{constant} yang berfungsi untuk menentukan jenis peta yang akan digunakan pada objek \textit{map}. Konsanta ini dapat memiliki empat nilai yaitu:
+    \textit{Google Maps Javascript API} menyediakan variabel konstanta / \textit{constant} yang berfungsi untuk menentukan jenis peta yang akan digunakan pada \textit{object} \textit{map}. Konstanta ini dapat memiliki empat nilai yaitu:
     \begin{itemize}
         \item HYBRID jenis peta ini akan menampilkan layar \textit{transparan} pada jalan-jalan utama pada citra satelit.
         \item ROADMAP jenis peta ini akan menampilkan \textit{street map}.
         \item SATELLITE jenis peta ini akan menampilkan citra satellite.
         \item TERRAIN jenis peta ini akan menampilkan bentuk nyata dari kondisi geologi suatu tempat.
     \end{itemize}
-    \item Fungsi \textit{setMapTypeId} beguna untuk membuat atau mengubah \textit{mapTypeId}. Fungsi ini memiliki struktur perintah seperti:
+    \item Fungsi \textit{setMapTypeId()} beguna untuk membuat atau mengubah \textit{mapTypeId}. Fungsi ini memiliki struktur perintah seperti berikut:
     \begin{lstlisting}
         setMapTypeId(mapTypeId)
         Parameters: 
         mapTypeId:  MapTypeId|string
     \end{lstlisting}
-    \item Fungsi \textit{setZoom} berguna untuk mengubah \textit{zoom  value} yang dimiliki oleh objek \textit{map}.
+    \item Fungsi \textit{setZoom()} berguna untuk mengubah \textit{zoom  value} yang dimiliki oleh \textit{object} \textit{map}.
     \begin{lstlisting}
         setZoom(zoom)
         Parameters: 
         zoom:  number
     \end{lstlisting}
-    \item Fungsi \textit{setMapOption} berguna untuk mengubah \textit{property mapOption} yang dimiliki oleh objek \textit{map}.
+    \item Fungsi \textit{setMapOption()} berguna untuk mengubah \textit{property mapOption} yang dimiliki oleh \textit{object} \textit{map}.
     \begin{lstlisting}
     setOptions(options)
     Parameters: 
@@ -379,13 +374,13 @@ Objek \textit{map} telah menyediakan fungsi-fungsi yang bisa langsung digunakan 
 \end{itemize}
 
 \subsection{Sistem Kordinat  Google Maps}
-\textit{Google Maps Javascript API} menggunakan  kelas \textit{LatLng} untuk merepresentasikan kordinat secara geografis pada objek \textit{map}. Kelas \textit{LatLng} merupakan sebuah kelas yang merepresentasikan latitude dan longtitude
+\textit{Google Maps Javascript API} menggunakan  kelas \textit{LatLng} untuk merepresentasikan koordinat secara geografis pada \textit{object} \textit{map}. Kelas \textit{LatLng} merupakan sebuah kelas yang merepresentasikan \textit{latitude} dan \textit{longitude}.
 \begin{itemize}
-    \item Latitude memiliki batas antara -90 sampai 90 derajat, jika ada nilai yang diluar batasan tersebut maka nilai tersebut akan dibulatkan kebatas terdekat.
-    \item Longtitude memiliki batas antara -180 sampai 180 derajat, jika ada nilai yang diluar batasan tersebut maka nilai tersebut akan dibulatkan kebatas terdekat. 
+    \item \textit{Latitude} memiliki batas antara -90 sampai 90 derajat, jika ada nilai yang diluar batasan tersebut maka nilai tersebut akan dibulatkan kebatas terdekat.
+    \item \textit{Longitude} memiliki batas antara -180 sampai 180 derajat, jika ada nilai yang diluar batasan tersebut maka nilai tersebut akan dibulatkan kebatas terdekat. 
 \end{itemize}
 
-Untuk dapat menginisialisasi kelas \textit{LatLng} pada \textit{google maps javascript api} pengembang perlu membuat \textit{constructor} yang memiliki struktur:
+Untuk dapat menginisialisasi kelas \textit{LatLng} pada \textit{Google Maps Javascript API} pengembang perlu membuat \textit{constructor} yang memiliki struktur seperti berikut:
 \begin{lstlisting}
     LatLng(lat, lng[, noWrap])
     Parameters: 
@@ -393,36 +388,36 @@ Untuk dapat menginisialisasi kelas \textit{LatLng} pada \textit{google maps java
     lng:  number
     noWrap:  boolean optional
 \end{lstlisting}
-Membuat objek LatLng yang mewakili titik geografis. \textit{latitude} ditentukan dalam derajat dalam rentang [-90, 90]. \textit{longtitude} ditentukan dalam derajat dalam rentang [-180, 180]. Set \textit{noWrap} \textit{true}  untuk mengaktifkan nilai di luar rentang ini. Contoh penggunaan kelas \textit{LatLng}:
+\textit{Object} LatLng dibuat untuk yang mewakili titik geografis. \textit{latitude} ditentukan dalam derajat dalam rentang [-90, 90]. \textit{longtitude} ditentukan dalam derajat dalam rentang [-180, 180]. Parameter \textit{noWrap} dibuat \textit{true}  untuk mengaktifkan nilai di luar rentang ini. Contoh penggunaan kelas \textit{LatLng} adalah sebagai berikut:
 \begin{lstlisting}
      map.setCenter(new google.maps.LatLng(-34, 151));
      map.setCenter({lat: -34, lng: 151}); 
 \end{lstlisting}
-\textit{Google Maps Javascript API} telah menyediakan fungsi bawaan yang dapat diakses ketika menggunakan kelas \textit{LatLng}. Fungsi tersebut adalah:
+\textit{Google Maps Javascript API} telah menyediakan fungsi bawaan yang dapat diakses ketika menggunakan kelas \textit{LatLng}. Fungsi tersebut adalah sebagai berikut:
 \begin{itemize}
-    \item Fungsi \textit{equals} fungsi ini bertujuan untuk membandingkan posisi antara objek \textit{map}.
+    \item Fungsi \textit{equals()} bertujuan untuk membandingkan posisi antara \textit{object} \textit{map}.
     \begin{lstlisting}
          equals(other)
          Parameters: 
          other:  LatLng
          Return Value:  boolean
     \end{lstlisting}
-    \item Fungsi \textit{lat} fungsi ini bertujuan untuk mendapatkan posisi \textit{latitude} dari  objek \textit{map}.
+    \item Fungsi \textit{lat()} bertujuan untuk mendapatkan posisi \textit{latitude} dari  \textit{object} \textit{map}.
     \begin{lstlisting}
         lat()
         Parameters:  None
         Return Value:  number
         Returns the latitude in degrees.
     \end{lstlisting}
-    \item Fungsi \textit{lng} fungsi ini bertujuan untuk mendapatkan posisi \textit{longtitude} dari  objek \textit{map}.
+    \item Fungsi \textit{lng()} bertujuan untuk mendapatkan posisi \textit{longtitude} dari  \textit{object} \textit{map}.
     \begin{lstlisting}
         lng()
         Parameters:  None
         Return Value:  number
         Returns the longitude in degrees.
     \end{lstlisting}
-    \item Fungsi \textit{toJSON} fungsi ini akan mengembalikan format \textit{json} terhadap posisi latlng padda objek \textit{map}
-    \item Fungsi \textit{toUrlValue} Mengembalikan string dalam bentuk "lat, lng" untuk LatLng ini.
+    \item Fungsi \textit{toJSON()} akan mengembalikan format \textit{json} terhadap posisi latlng padda \textit{object} \textit{map}
+    \item Fungsi \textit{toUrlValue()} akan mengembalikan string dalam bentuk "lat, lng" untuk LatLng ini.
 \end{itemize}
 
 
@@ -435,13 +430,13 @@ Membuat objek LatLng yang mewakili titik geografis. \textit{latitude} ditentukan
     \label{fig:my_label}
 \end{figure}
 
-\textit{Marker} adalah sebuah kelas yang dapat memunculkan \textit{mark} / tanda pada objek \textit{map}. Untuk dapat menginisilasisasi kelas \textit{marker} pengembang dapat menggunakan \textit{constructor} yang memiliki struktur seperti:
+\textit{Marker} adalah sebuah kelas yang dapat memunculkan \textit{mark} / tanda pada \textit{object} \textit{map}. Untuk dapat menginisialisasi kelas \textit{marker}, pengembang dapat menggunakan \textit{constructor} yang memiliki struktur seperti berikut:
 \begin{lstlisting}
     Marker([opts])
     Parameters: 
     opts:  MarkerOptions optional
 \end{lstlisting}
-Pada \textit{constructor} \textit{marker} terdapat parameter \textit{markeroptions} yang bersifat optional. \textit{MarkerOptions} merupakan sebuah objek yang dapat digunakan pada objek \textit{mark}. \textit{MarkerOptions} memiliki properti yang dapat digunakan  seperti:
+Pada \textit{constructor} \textit{marker} terdapat parameter \textit{MarkerOptions} yang bersifat optional. \textit{MarkerOptions} merupakan sebuah \textit{object} yang dapat digunakan pada \textit{object} \textit{mark}. \textit{MarkerOptions} memiliki properti yang dapat digunakan  seperti:
 
 \begin{table}[H] 
 	\centering 
@@ -449,24 +444,24 @@ Pada \textit{constructor} \textit{marker} terdapat parameter \textit{markeroptio
 	\label{tab:radioPackages}
 	\begin{tabular}{|p{8cm}|p{8cm}|}
 	\hline
-		Properi & Deksripsi \\
+		Properi & Deskripsi \\
     \hline
-    	Properti \textit{anchorPoint}.& Nilai offset dari objek marker terhadap info window. \\
-    	Properti \textit{animation}.  & Animasi yang akan digunakan ketika objek marker diinisialisasikan.  \\
-    	Properti \textit{clickable}.  & Properti penanda jika objek marker diklik.  \\
-    	Properti \textit{crossOnDrag}.  & Properti penanda jika objek marker didrag oleh pengguna. \\
-    	Properti \textit{cursor}.  & Properti yang akan menunjukan \textit{cursor}  ketika objek marker di \textit{hover}. \\
-    	Properti \textit{dragable}.  & Properti bertipe \textit{boolean} yang akan menandakan apakah objek marker dapat dilukakn operasi \textit{drag}. \\
-    	Properti \textit{icon}.  & Properti untuk memberikan icon pada objek marker. \\
-    	Properti \textit{label}.  & Properti untuk memberikan label pada objek marker. \\
-    	Properti \textit{map}.  & Properti untuk menentukan objek map yang akan dipakai oleh marker. \\
-    	Properti \textit{opacity}.  & Properti untuk mengakses nilai opacity dari objek marker \\
-    	Properti \textit{position}.  & Properti untuk mengakses nilai posisi dari objek marker. \\
+    	Properti \textit{anchorPoint}.& Nilai offset dari \textit{object} marker terhadap info window. \\
+    	Properti \textit{animation}.  & Animasi yang akan digunakan ketika \textit{object} marker diinisialisasikan.  \\
+    	Properti \textit{clickable}.  & Properti penanda jika \textit{object} marker diklik.  \\
+    	Properti \textit{crossOnDrag}.  & Properti penanda jika \textit{object} marker didrag oleh pengguna. \\
+    	Properti \textit{cursor}.  & Properti yang akan menunjukan \textit{cursor}  ketika \textit{object} marker di \textit{hover}. \\
+    	Properti \textit{dragable}.  & Properti bertipe \textit{boolean} yang akan menandakan apakah \textit{object} marker dapat dilukakn operasi \textit{drag}. \\
+    	Properti \textit{icon}.  & Properti untuk memberikan icon pada \textit{object} marker. \\
+    	Properti \textit{label}.  & Properti untuk memberikan label pada \textit{object} marker. \\
+    	Properti \textit{map}.  & Properti untuk menentukan \textit{object} map yang akan dipakai oleh marker. \\
+    	Properti \textit{opacity}.  & Properti untuk mengakses nilai opacity dari \textit{object} marker \\
+    	Properti \textit{position}.  & Properti untuk mengakses nilai posisi dari \textit{object} marker. \\
 		\hline
 	\end{tabular} 
 \end{table}
 
-Contoh penginisialisasian \textit{marker} pada  objek \textit{maps} adalah:
+Contoh inisialisasi \textit{marker} pada  \textit{object} \textit{maps} adalah sebagai berikut:
 \begin{lstlisting}
     return new google.maps.Marker({
                 position: location,
@@ -482,35 +477,35 @@ Kelas \textit{marker} memiliki fungsi bawaan yang telah disediakan oleh antara l
 	\hline
 		Package & Deksripsi \\
     \hline
-		getAnimation & Fungsi untuk mendapatkan animasi yang digunakan oleh objek marker \\
+		getAnimation & Fungsi untuk mendapatkan animasi yang digunakan oleh \textit{object} marker \\
 		getClickable  & Fungsi untuk mendapatkan status \textit{clickable} \\
 		getCursor  & Fungsi untuk mendapatkan nilai \textit{cursor} \\
 		getDraggable  & Fungsi untuk mendapatkan nilai \textit{draggable} \\
 		getIcon  & Fungsi untuk mendapatkan nilai \textit{icon} \\
-		getMap  & Fungsi untuk mendapatkan objek \textit{map} \\
-		getOpacity  & Fungsi untuk mendapatkan objek \textit{opacity} \\
-		getPosition  & Fungsi untuk mendapatkan objek \textit{position} \\
-		getShape  & Fungsi untuk mendapatkan \textit{shape} dari objek \textit{marker} \\
-		getTitle  & Fungsi untuk mendapatkan \textit{title} dari objek \textit{marker} \\
+		getMap  & Fungsi untuk mendapatkan \textit{object} \textit{map} \\
+		getOpacity  & Fungsi untuk mendapatkan \textit{object} \textit{opacity} \\
+		getPosition  & Fungsi untuk mendapatkan \textit{object} \textit{position} \\
+		getShape  & Fungsi untuk mendapatkan \textit{shape} dari \textit{object} \textit{marker} \\
+		getTitle  & Fungsi untuk mendapatkan \textit{title} dari \textit{object} \textit{marker} \\
 		\hline
 	\end{tabular} 
 \end{table}
 
 
 \section{Marker Clusterer}
- \textit{MarkerClustererPlus} merupakan sebuah \textit{library} tambahan untuk dapat mengelompokan objek marker \ref{sec:mark}. Visualisasi dari \textit{MarkerClustererPlus} dapat dilihat pada gambar \ref{fig:mcp}
+ \textit{MarkerClustererPlus} merupakan sebuah \textit{library} tambahan untuk dapat mengelompokan \textit{object marker} pada \ref{sec:mark}. Visualisasi dari \textit{MarkerClustererPlus} dapat dilihat pada gambar \ref{fig:mcp}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{Gambar/marker_clustering.PNG}
 	\caption{Contoh Marker Clustering}
 	\label{fig:mcp}
 \end{figure}
-Untuk dapat  menginisialisasi kelas tersebut pihak pengembang perlu menuliskan perintah:
+Untuk dapat  menginisialisasi kelas tersebut, pihak pengembang perlu menuliskan perintah sebagai berikut:
 \begin{lstlisting}
     var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: `${path}/m`});
 \end{lstlisting}
-\textit{Marker Clusterer} sendiri meruapakan suatu library untuk kelas \textit{mark} sehingga kelas ini dapat menggunakan fungsi turunan dari kelas \textit{mark}.
+\textit{Marker Clusterer} sendiri merupakan suatu \textit{library} untuk kelas \textit{mark} sehingga kelas ini dapat menggunakan fungsi turunan dari kelas \textit{mark}.
 
 \section{HeatMap}
 \begin{figure}[H]
@@ -521,35 +516,36 @@ Untuk dapat  menginisialisasi kelas tersebut pihak pengembang perlu menuliskan p
 \end{figure}
 
 
-\textit{Google Maps Javascript API} telah menyediakan kelas \textit{heatmap} untuk menampilkan \textit{heatmap} pada objek \textit{maps} \ref{fig:sechm} . Untuk dapat menginisialisasi kelas ini pengembang perlu memanggil perintah \textit{constructor} yang memiliki struktur seperti:
+\textit{Google Maps Javascript API} telah menyediakan kelas \textit{heatmap} untuk menampilkan \textit{heatmap} pada \textit{object} \textit{maps} \ref{fig:sechm}. Untuk dapat menginisialisasi kelas ini, pengembang perlu memanggil perintah \textit{constructor} yang memiliki struktur seperti berikut:
 \begin{lstlisting}
     HeatmapLayer([opts])
     Parameters: 
     opts:  HeatmapLayerOptions optional
 \end{lstlisting}.
 
-Kelas \textit{HeatMap} dilengkapi dengan parameter \textit{HeatmapLayerOptions} yang bersifat opsional, objek ini  bertujuan untuk dapat mengatur \textit{property} dari kelas \textit{HeatMap}. Parameter \textit{HeatMapLayerOptions} merupakan sebuah objek yang memiliki atribut sebagai berikut:
+Kelas \textit{HeatMap} dilengkapi dengan parameter \textit{HeatmapLayerOptions} yang bersifat opsional, \textit{object} ini  bertujuan untuk dapat mengatur \textit{property} dari kelas \textit{HeatMap}. Parameter \textit{HeatMapLayerOptions} merupakan sebuah \textit{object} yang memiliki atribut sebagai berikut:
 
 \begin{itemize}
-    \item data \textit{titik-titik} data yang diperlukan.
-    \item dissipating variabel yang menentukan apakah \textit{heatmap} akan menghilang jika \textit{maps} diperbesar atau diperkecil.
-    \item gardient gardient dari warna \textit{heatmap}
-    \item map atribute untuk menunjukan peta dimana \textit{heatmap} akan ditampilkan.
-    \item maxIntencity nilai maximal dari intensitas warna pada \textit{heatmap}.
-    \item opcity nilai opacity dari \textit{heatmap}.
-    \item radius nilai radius dari \textit{heatmap}.
+    \item Titik data yang diperlukan.
+    \item \textit{Dissipate variable} yang menentukan apakah \textit{heatmap} akan menghilang jika \textit{maps} diperbesar atau diperkecil.
+    \item Gradien dari warna \textit{heatmap}
+    \item \textit{Map atribute} untuk menunjukan peta dimana \textit{heatmap} akan ditampilkan.
+    \item \textit{MaxIntencity} yang merupakan nilai maximal dari intensitas warna pada \textit{heatmap}.
+    \item \textit{Opacity} yang merupakan nilai \textit{opacity} dari \textit{heatmap}.
+    \item Radius yang merupakan nilai radius dari \textit{heatmap}.
 \end{itemize}
-Contoh penginisialisasian kelas \textit{heatmap}:
+
+Contoh inisialisasi kelas \textit{heatmap} adalah sebagai berikut:
 \begin{lstlisting}
     let heatmap = new google.maps.visualization.HeatmapLayer({
             data: heatmapData
         });
 \end{lstlisting}
-Kelas \textit{HeatMap} memiliki fungsi-fungsi bawaan yang telah disediakan oleh \textit{google maps} beberapa fungsi tersebut adalah:
+Kelas \textit{HeatMap} memiliki fungsi bawaan yang telah disediakan oleh \textit{Google Maps} beberapa fungsi tersebut adalah:
 \begin{itemize}
-    \item getData() fungsi ini akan mengembalikan data point pada objek \textit{heatmap}.
-    \item getMap() fungsi ini akan mengembalikan objek \textit{map}.
-    \item setData(data) fungsi ini akan memasukan data pada objek \textit{heatmap}.
-    \item setMap(map) fungsi ini akan memasukan objek \textit{map} pada objek \textit{heatmap}.
-    \item setOption(option) fungsi ini akan memasukan  objek \textit{HeatMapLayerOptions} pada objek \textit{heatmap}.
+    \item getData() fungsi ini akan mengembalikan data point pada \textit{object} \textit{heatmap}.
+    \item getMap() fungsi ini akan mengembalikan \textit{object} \textit{map}.
+    \item setData(data) fungsi ini akan memasukan data pada \textit{object} \textit{heatmap}.
+    \item setMap(map) fungsi ini akan memasukan \textit{object} \textit{map} pada \textit{object} \textit{heatmap}.
+    \item setOption(option) fungsi ini akan memasukan  \textit{object} \textit{HeatMapLayerOptions} pada \textit{object} \textit{heatmap}.
 \end{itemize}

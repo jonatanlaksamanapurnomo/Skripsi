@@ -1,5 +1,5 @@
 %% skripsi.tex
-%% Copyright 2011-2019 Lionov W.
+%% Copyright 2011-2020 Lionov W.
 %%
 %% This file is part of the 'Template Skripsi/Tugas Akhir FTIS UNPAR'
 %%
@@ -15,7 +15,7 @@
 %% The Current Maintainer of this work is Lionov W (lionov@unpar.ac.id) 
 %_____________________________________________________________________________
 %=============================================================================
-% skripsi.tex v12 (27-01-2017) dibuat oleh Lionov - T. Informatika FTIS UNPAR 
+% skripsi.tex v13 (24-07-2020) dibuat oleh Lionov - Informatika FTIS UNPAR 
 % 
 % Ini adalah file utama (skripsi.tex), berisi perintah-perintah yang khusus 
 % dibuat untuk template ini
@@ -23,33 +23,25 @@
 % 			JANGAN MENGUBAH APAPUN DI DALAM FILE INI, 
 %			KECUALI ANDA TAHU APA YANG ANDA LAKUKAN !!! 
 % 
-% Perubahan pada versi 12:
-%	- Penulisan ulang sebagian besar isi file untuk konsistensi
-%	- Penghapusan pdf title dan pdf subject bahasa inggris
-% 	- Penggunaan package microtype untuk mencegah underfull
-%	- Penggunaan package emptypage untuk \cleardoublepage
-%	- Memperbaharui headrule untuk dua garis horizontal di header halaman
-%	- Daftar Gambar dan Daftar Tabel dimulai dari halaman ganjil
-%	- Perubahan cara include bab dan lampiran, harus diisi manual
-%	- Perbaikan textwidth di halaman pengesahan
-%	- Margin untuk buku sidang dan buku final disamakan
-%	- Penulisan default value menggunakan warna merah dan \small
-%	- Perubahan menjadi "kaprodiXXX" 
-%	- Penghapusan command-command dan package yang tidak dibutuhkan
-%	- Perubahan listing untuk kode program (font Bera Mono dan warna)
-%	- Perbaikan pada tata letak di lembar pernyataan
-%	- Deklarasi kaprodi dipindah dari dosen.tex
-%   - Perubahan file logo unpar
-%	- Perbaikan metadata pada file PDF
-%	- Referensi dan lampiran selalu onespacing 
+% Perubahan pada versi 13:
+%   - penambahan opsi digital signature untuk para dosen
+%   - penambahan tiga opsi tanda tangan untuk mahasiswa
+%   - penambahan file ttd.jpg (dari Husnul Hakim)
+%   - dapat menangani format npm baru (per angkatan 2018)
+%   - penambahan daftar listings (kode program)
+%   - penambahan gambar kotak untuk kode program
+%   - pemindahan file compj.bst dan digsig.sty ke folder .sty
+%   - format kode program di bab dan penambahan kotak untuk kode program
+%   - penambahan daftar notasi
 %_____________________________________________________________________________
 %=============================================================================
 
 \documentclass[11pt,a4paper,twoside,openright,notitlepage]{report}  
-\usepackage{dirtree}
 \usepackage[bahasa]{babel}%bahasa indonesia
-\usepackage{lmodern}%font latin modern 
+\usepackage{lmodern}%font latin modern
+\usepackage{dirtree}
 \usepackage[T1]{fontenc}%encoding
+\usepackage{algorithm,algpseudocode}
 \usepackage[inner=2.5cm,outer=2cm,top=2.5cm,bottom=2.5cm]{geometry}%margin
 \usepackage{microtype}%mencegah underfull
 \usepackage{lipsum}%untuk dummy text
@@ -65,49 +57,164 @@
 \usepackage{emptypage}%halaman kosong antar bab
 \usepackage{graphicx}%untuk graphicspath
 \usepackage{listings}%untuk penulisan source code
+\documentclass{scrreprt}
+\makeatletter
 \usepackage{color}
-\definecolor{lightgray}{rgb}{.9,.9,.9}
-\definecolor{darkgray}{rgb}{.4,.4,.4}
-\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
-
-\lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{//},
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+%\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{orange}{rgb}{1,0.45,0.13}		
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
+\usepackage{upquote}
+\usepackage{listings}
+% CSS
+\lstdefinelanguage{CSS}{
+  keywords={color,background-image:,margin,padding,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width, transition:, transform:, transition-property, transition-duration, transition-timing-function},	
+  sensitive=true,
+  morecomment=[l]{//},
   morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
   morestring=[b]',
-  morestring=[b]"
+  morestring=[b]",
+  alsoletter={:},
+  alsodigit={-}
 }
 
-\lstset{
-   language=JavaScript,
-   backgroundcolor=\color{lightgray},
-   extendedchars=true,
-   basicstyle=\footnotesize\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   numbers=left,
-   numberstyle=\footnotesize,
-   numbersep=9pt,
-   tabsize=2,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b
+% JavaScript
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
 }
 
+\lstdefinelanguage{HTML5}{
+  language=html,
+  sensitive=true,	
+  alsoletter={<>=-},	
+  morecomment=[s]{<!-}{-->},
+  tag=[s],
+  otherkeywords={
+  % General
+  >,
+  % Standard tags
+	<!DOCTYPE,
+  </html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+	% body
+	</body, <body,
+	% Divs
+	</div, <div, </div>, 
+	% Paragraphs
+	</p, <p, </p>,
+	% scripts
+	</script, <script,
+  % More tags...
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
+  },
+  ndkeywords={
+  % General
+  =,
+  % HTML attributes
+  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+  % SVG attributes
+  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+  % properties
+  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+	% CSS3 properties
+  transform:, -moz-transform:, -webkit-transform:,
+  animation:, -webkit-animation:,
+  transition:,  transition-duration:, transition-property:, transition-timing-function:,
+  }
+}
+
+\lstdefinestyle{htmlcssjs} {%
+  % General design
+%  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},   
+  frame=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,	
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  language=HTML5,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},	
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % German umlauts
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+}
+%
+\lstdefinestyle{py} {%
+language=python,
+literate=%
+*{0}{{{\color{lightred}0}}}1
+{1}{{{\color{lightred}1}}}1
+{2}{{{\color{lightred}2}}}1
+{3}{{{\color{lightred}3}}}1
+{4}{{{\color{lightred}4}}}1
+{5}{{{\color{lightred}5}}}1
+{6}{{{\color{lightred}6}}}1
+{7}{{{\color{lightred}7}}}1
+{8}{{{\color{lightred}8}}}1
+{9}{{{\color{lightred}9}}}1,
+basicstyle=\footnotesize\ttfamily, % Standardschrift
+numbers=left,               % Ort der Zeilennummern
+%numberstyle=\tiny,          % Stil der Zeilennummern
+%stepnumber=2,               % Abstand zwischen den Zeilennummern
+numbersep=5pt,              % Abstand der Nummern zum Text
+tabsize=4,                  % Groesse von Tabs
+extendedchars=true,         %
+breaklines=true,            % Zeilen werden Umgebrochen
+keywordstyle=\color{blue}\bfseries,
+frame=b,
+commentstyle=\color{brown}\itshape,
+stringstyle=\color{editorOcher}\ttfamily, % Farbe der String
+showspaces=false,           % Leerzeichen anzeigen ?
+showtabs=false,             % Tabs anzeigen ?
+xleftmargin=17pt,
+framexleftmargin=17pt,
+framexrightmargin=5pt,
+framexbottommargin=4pt,
+%backgroundcolor=\color{lightgray},
+showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
+}%
+%
+\makeatother
 \usepackage{etoolbox}%untuk programming dll
 \usepackage{xstring}%manipulasi string, strchar, ifstreq
 \usepackage[table]{xcolor}%untuk kode program
 \usepackage{pgffor}% untuk foreach
-\usepackage{forest}
-\usepackage{amsmath}
-\usepackage{algorithm,algpseudocode}
+\usepackage{.sty/digsig}% untuk digital signature
+\usepackage{nomencl} % daftar simbol
+\usepackage{hyperref}
 \newcommand{\vtemplateauthor}{lionov}
 \newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}%command untuk dummy text
 \newcommand{\rtext}[1]{{\color{red} \small #1}}%command untuk default text
@@ -125,11 +232,11 @@
 \newcommand{\vtextup}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\uppercase{\rtext{#2}}#3}}{\newcommand{#1}{\uppercase{#2}}}}
 
 %default data prodi
-\newcommand{\vprodiINA}{\rtext{<<MATEMATIKA/FISIKA/TEKNIK INFORMATIKA>>}}
+\newcommand{\vprodiINA}{{\small <<MATEMATIKA/FISIKA/TEKNIK INFORMATIKA>>}}
 \newcommand{\vprodiENG}{\rtext{<<MATHEMATICS/PHYSICS/INFORMATICS>>}}
 \newcommand{\vstaINA}{\rtext{<<SKRIPSI/TUGAS AKHIR>>}} 
 \newcommand{\vstaENG}{\rtext{<<FINAL PROJECT/UNDERGRADUATE THESIS>>}}
-\newcommand{\vkaprodi}{\rtext{<<Ketua Program Studi>>}}
+\newcommand{\vkaprodi}{<<Ketua Program Studi>>}
   
 %data kaprodi 
 \newcommand{\kaprodiMAT}{}
@@ -138,9 +245,25 @@
 
 \include{dosen}%dosen.tex
 
+%perubahan data prodi
+\newcommand{\vmat}{
+\renewcommand{\vprodiINA}{MATEMATIKA} \renewcommand{\vprodiENG}{MATHEMATICS} 
+\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{FINAL PROJECT} 
+\renewcommand{\vkaprodi}{\kaprodiMAT}}
+\newcommand{\vfis}{
+\renewcommand{\vprodiINA}{FISIKA} \renewcommand{\vprodiENG}{PHYSICS} 
+\renewcommand{\vstaINA}{TUGAS AKHIR} \renewcommand{\vstaENG}{FINAL PROJECT} 
+\renewcommand{\vkaprodi}{\kaprodiFIS}}
+\newcommand{\vtif}{
+\renewcommand{\vprodiINA}{TEKNIK INFORMATIKA}\renewcommand{\vprodiENG}{INFORMATICS} 
+\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{UNDERGRADUATE THESIS} 
+\renewcommand{\vkaprodi}{\kaprodiTIF}
+}
+
 %data mahasiswi/a dan prodi 
 \newcommand{\namanpm}[2]{%
 	\vtext{\vnama}{#1}{}
+	\vtext{\vnpm}{#2}{}
 	\newtoggle{okNPM}
 	\iftoggle{cekNPM}{%cek penulisan NPM
 		\newtoggle{myint} \newtoggle{mylen} \StrLen{\vnpm}[\mystrlen]
@@ -150,14 +273,12 @@
 	}{ 
 		\nottoggle{okNPM}{
 			\hypersetup{pdfauthor={#2 - #1}}
-			\StrChar{#2}{6}[\vprodiN] 
+			\StrChar{#2}{1}[\vnewnpm]
+			\IfEq{\vnewnpm}{6}{\StrChar{#2}{3}[\vprodiN]}{\StrChar{#2}{6}[\vprodiN]} 
+			%\StrChar{#2}{3}[\vprodiN]
 			\IfStrEqCase{\vprodiN}{
-				{1}{\renewcommand{\vprodiINA}{MATEMATIKA} \renewcommand{\vprodiENG}{MATHEMATICS} 
-					\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{FINAL PROJECT} \renewcommand{\vkaprodi}{\kaprodiMAT}}
-				{2}{\renewcommand{\vprodiINA}{FISIKA} \renewcommand{\vprodiENG}{PHYSICS} 
-					\renewcommand{\vstaINA}{TUGAS AKHIR} \renewcommand{\vstaENG}{FINAL PROJECT} \renewcommand{\vkaprodi}{\kaprodiFIS}}
-				{3}{\renewcommand{\vprodiINA}{TEKNIK INFORMATIKA}\renewcommand{\vprodiENG}{INFORMATICS} 
-					\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{UNDERGRADUATE THESIS} \renewcommand{\vkaprodi}{\kaprodiTIF}}		
+				{1}{\vmat} {2}{\vfis} {3}{\vtif}
+				{6}{\vmat} {7}{\vfis} {8}{\vtif}
 			[]}
 			\hypersetup{pdfsubject={\vprodiINA}}
 		}{}
@@ -210,12 +331,16 @@
 \newcommand{\linespacing}[1]{\newcommand{\vspacing}{#1}} 
 \newcommand{\gambar}[1]{\newcommand{\vgambar}{#1}}
 \newcommand{\tabel}[1]{\newcommand{\vtabel}{#1}}
+\newcommand{\kode}[1]{\newcommand{\vkode}{#1}}
+\newcommand{\notasi}[1]{\newcommand{\vnotasi}{#1}}
 \edef\vbab{1,2,3,4,5,6,7,8,9}
 \newcommand{\bab}[1]{\IfStrEq{#1}{all}{}{\IfStrEq{\vmode}{bimbingan}{\edef\vbab{#1}}{}}}
 \edef\vlamp{A,B,C,D,E,F,G,H,I}
 \newcommand{\lampiran}[1]{\IfStrEq{\vmode}{bimbingan}{\IfStrEq{#1}{all}{}
 		{\IfStrEq{#1}{none}{\edef\vlamp{}}{\edef\vlamp{#1}}}}{}}
-	 
+\newcommand{\ttd}[1]{\newcommand{\vttd}{#1}}
+\newcommand{\ttddosen}[1]{\newcommand{\vttddosen}{#1}}
+
 %spacing, mode buku selalu didahulukan
 \newcommand{\appspacing}{
 	\IfStrEqCase{\vmode}{{sidang}{\onehalfspacing}{sidangakhir}{\onehalfspacing}{final}{\singlespacing}
@@ -254,26 +379,75 @@
 \renewcommand{\cftafterloftitle}{\hfill}
 \renewcommand{\cftlottitlefont}{\hfill\Large\bfseries\MakeUppercase}
 \renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\lstlistingname}{Kode}
+\renewcommand{\lstlistlistingname}{Daftar Kode Program}
+\makenomenclature
+\renewcommand{\nomname}{Daftar Notasi}
 
+\let\Chapter\chapter
+\def\chapter{\addtocontents{lol}{\protect\addvspace{10pt}}\Chapter}
+
+%listing khusus untuk penulisan kode program, menggunakan font Bera Mono
+\lstset{
+  % General design
+%  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},   
+  frame=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,	
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  language=HTML5,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},	
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % German umlauts
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+} 
+%\toggletrue{develop} % aktifkan untuk mode develop
 %apakah dalam develop mode ?
 \iftoggle{develop}{ 
 	\usepackage{booktabs,pgfplots}\usepackage[table]{xcolor}
 	\daftarIsiError{0} 
 	\mode{final} 
 	\linenumber{yes}\linespacing{double} 
-	\gambar{yes}\tabel{no} 
+	\gambar{yes}\tabel{no}\kode{yes} 
 	\bab{1,2}\lampiran{A} 
 	\namanpm{Lionov}{1997730020}\tanggal{1}{8}{2002}
-	\pembimbing{\BSB}{}\penguji{\TAB}{\LNV}
-	\judulINA{Visualisasi Data Histori KIRI pada Google Maps}
-	\judulENG{Judul Bahasa Inggris}
-	\abstrakINA{Tuliskan abstrak anda di sini, dalam bahasa Indonesia }
-	\abstrakENG{Tuliskan abstrak anda di sini, dalam bahasa Inggris } 
-	\kunciINA{Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Indonesia}
-	\kunciENG{Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Inggris}
-	\untuk{kepada siapa anda mempersembahkan skripsi ini\ldots?}
-	\prakata{Tuliskan kata pengantar dari anda di sini \ldots}
+	\pembimbing{\LNV}{}\penguji{\VAN}{\HUH}
+	\judulINA{Balonku Ada Lima}
+	\judulENG{The Five Baboons}
+	\abstrakINA{\lipsum[6]}
+	\abstrakENG{\lipsum[7]} 
+	\kunciINA{Kunci, Kunci-kunci, Kata, Kata-kata, Indonesia}
+	\kunciENG{Key, Keys, Word, Words, English}
+	\untuk{Odin}
+	\prakata{\lipsum[1-5]}
 	\pgfplotsset{compat=newest}
+	\ttd{kosong}
+	\ttddosen{no}
+	\notasi{yes}
 }{\include{data}} 
 
 %isi dokumen
@@ -332,10 +506,8 @@
 	% Lembar pengesahan
 	\begin{center}
 		{\Large \textbf{
-		LEMBAR PENGESAHAN \\\vspace{1.5cm}
-		\vfill
-		\vjudulINA \\\vspace{1cm}
-		\vfill
+		LEMBAR PENGESAHAN \\\vspace{1.5cm} \vfill
+		\vjudulINA \\\vspace{1cm} \vfill
 		\uppercase{\vnama} \\\vspace{0.5cm}
 		NPM: \vnpm \\\vspace{0.5cm}
 		}}	
@@ -344,28 +516,46 @@
 			Bandung, \vtanggal\ \vbulan\ \vtahun \\ \vspace{0.5cm} 
 			Menyetujui,\\ \vspace{0.25cm}
 			\ifdefempty{\vpembs}
-			{\begin{center} Pembimbing\\ \vspace{2.25cm} \vpembu\end{center}}
+			{\begin{center} Pembimbing\\ 
+			    \IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}			    
+			    {\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembu}\ \end{Form}\\}
+			    \vpembu\end{center}}
 			{\begin{minipage}[b]{0.475\textwidth}
-				 \begin{center}Pembimbing Utama \\ \vspace{2.5cm} \vpembu\end{center}
+				 \begin{center}Pembimbing Utama \\ 
+				 \IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+				 {\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembu}\ \end{Form}\\} 
+				 \vpembu\end{center}
 			 \end{minipage} \hspace{0.5cm}
 			 \begin{minipage}[b]{0.475\textwidth}
-				 \begin{center} Pembimbing Pendamping \\	\vspace{2.5cm} \vpembs\end{center}
+				 \begin{center} Pembimbing Pendamping \\
+				 \IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+				 {\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembs}\ \end{Form}\\}
+				 \vpembs\end{center}
 			 \end{minipage}	
 			}
 		\end{center}  
 		\vspace{0.75cm} 
 		\begin{center}	
 			\begin{minipage}[b]{0.475\textwidth}
-				\begin{center}Ketua Tim Penguji \\ \vspace{2.5cm} \vpengi\end{center}
+				\begin{center}Ketua Tim Penguji \\ 
+				\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+				{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpengi}\ \end{Form}\\}
+				\vpengi\end{center}
 			\end{minipage} \hspace{0.5cm}
 			\begin{minipage}[b]{0.475\textwidth}
-				\begin{center}Anggota Tim Penguji \\ \vspace{2.5cm} \vpengii\end{center} 
+				\begin{center}Anggota Tim Penguji \\ 
+				\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+				{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpengii}\ \end{Form}\\}
+				\vpengii\end{center} 
 			\end{minipage} 
 		\end{center}
 		\vspace{0.75cm}
 		\begin{center} 
 		Mengetahui,\\ \vspace{0.5cm}	
-		Ketua Program Studi \\ \vspace{2.5cm} \vkaprodi
+		Ketua Program Studi \\
+		\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+		{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vkaprodi\ (Kaprodi)}\ \end{Form}\\}
+		\vkaprodi
 		\end{center}
 		}}			 
 	\end{center}
@@ -382,16 +572,23 @@
 	adalah benar-benar karya saya sendiri, dan saya tidak melakukan penjiplakan atau pengutipan dengan cara-cara yang tidak sesuai dengan etika keilmuan yang berlaku dalam masyarakat keilmuan.}
 	\vspace{0pt}\\
 	{\noindent			
-	Atas pernyataan ini, saya siap menanggung segala risiko dan sanksi yang dijatuhkan kepada saya, apabila di kemudian hari ditemukan adanya pelanggaran terhadap etika keilmuan dalam karya saya, atau jika ada tuntutan formal atau non-formal dari pihak lain berkaitan dengan keaslian karya saya ini.\\}
+	Atas pernyataan ini, saya siap menanggung segala risiko dan sanksi yang dijatuhkan kepada saya, apabila di kemudian hari ditemukan adanya pelanggaran terhadap etika keilmuan dalam karya saya, atau jika ada tuntutan formal atau non-formal dari pihak lain berkaitan dengan keaslian~karya~saya~ini.\\}
 	\vspace{0.25cm}
 	
 	\begin{flushright}	
 		Dinyatakan di Bandung,\\
-		Tanggal \vtanggal\ \vbulan\ \vtahun \\ \vspace{0.5cm}
-		\begin{tabular}{|p{1.75cm}|}
-			\hline\\ Meterai \\ Rp. 6000 \\  \hline
-		\end{tabular}\\
-		\vspace{0.5cm}   
+		Tanggal \vtanggal\ \vbulan\ \vtahun \\
+		\IfStrEq{\vttd}{digital}
+		    {\begin{Form} \ \digsigfield{5cm}{2.25cm}{\vnama}\ \end{Form}\\}
+		    {\IfStrEq{\vttd}{gambar}
+		        {\includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{ttd}\\}
+		        {{\IfStrEq{\vttd}{meterai}
+		            {\vspace{0.5cm}
+        		    \begin{tabular}{|p{1.75cm}|}\hline\\Meterai\\Rp. 6000\\ \hline\end{tabular}\\\vspace{0.5cm}}
+        		    {\vspace{2.5cm}}
+		        }
+		        }    
+        	}
 		\vnama \\
 		NPM: \vnpm
 	\end{flushright}
@@ -436,6 +633,14 @@
 \tableofcontents \cleardoublepage 							% Daftar isi
 \IfStrEq{\vgambar}{yes}{\listoffigures \cleardoublepage}{} 	% Daftar gambar
 \IfStrEq{\vtabel}{yes}{\listoftables \cleardoublepage}{} 	% Daftar tabel  
+\IfStrEq{\vkode}{yes}{
+    \lstlistoflistings \addcontentsline{toc}{chapter}{Daftar Kode Program}
+    \cleardoublepage}{} % Daftar kode 
+\IfStrEq{\vnotasi}{yes}{    
+    \setlength{\nomitemsep}{-\parsep}
+    \printnomenclature 
+    \addcontentsline{toc}{chapter}{Daftar Notasi}
+    \cleardoublepage}{} % Daftar notasi 
 }{} %vbimbingan
 
 \pagenumbering{arabic} %nomor halaman 
@@ -457,16 +662,8 @@
 
 \nolinenumbers%tidak ada line number untuk lampiran dan daftar referensi
 
-\bibliographystyle{compj} %gunakan compj 
+\bibliographystyle{.sty/compj} %gunakan compj 
 \bibliography{referensi}
-
-%listing khusus untuk penulisan kode program, menggunakan font Bera Mono
-\lstset{numbers=left,stepnumber=1, numbersep=5pt, frame=leftline,
-	tabsize=4, breaklines=true, basicstyle=\fontfamily{fvm}\selectfont\tiny, 
-	commentstyle=\itshape\color{gray}, keywordstyle=\bfseries\color{blue}, 
-	identifierstyle=\color{black}, stringstyle=\color{orange},
-	literate={-}{-}1{-\,-}{--}1
-} 
 
 \appendix%Penomoran lampiran dengan huruf  
 

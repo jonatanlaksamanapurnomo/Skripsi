@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+
+        <div class="p-4 pt-5">
+            <p>Results : <span id="result-length">0</span></p>
+            <h1><a href="index.html" class="logo" id="logo">KIRI</a></h1>
+            <li>
+                <p>Start / Finish</p>
+                <div>
+                    <select style="width: 100% ; height: 3rem" id="start-finish">
+                        <option value="start">Start</option>
+                        <option value="end">End</option>
+                    </select>
+                </div>
+            </li>
+
+
+            <li>
+                <p>Days</p>
+                <select style="width: 100% ; height: 8rem" id="day" multiple>
+                    <option selected value="0">Monday</option>
+                    <option value="1">Tuesday</option>
+                    <option value="2">Wednesday</option>
+                    <option value="3">Thrusday</option>
+                    <option value="4">Friday</option>
+                    <option value="5">Saturday</option>
+                    <option value="6">Sunday</option>
+                </select>
+
+            </li>
+            <!-- ini jam -->
+            <li>
+                <p>Hours</p>
+                <select style="width: 100% ; height: 27rem" id="hour" multiple>
+                    <option selected value="0">0:00</option>
+                    <option value="1">1:00</option>
+                    <option value="2">2:00</option>
+                    <option value="3">3:00</option>
+                    <option value="4">4:00</option>
+                    <option value="5">5:00</option>
+                    <option value="6">6:00</option>
+                    <option value="7">7:00</option>
+                    <option value="8">8:00</option>
+                    <option value="9">9:00</option>
+                    <option value="10">10:00</option>
+                    <option value="11">11:00</option>
+                    <option value="12">12:00</option>
+                    <option value="13">13:00</option>
+                    <option value="14">14:00</option>
+                    <option value="15">15:00</option>
+                    <option value="16">16:00</option>
+                    <option value="17">17:00</option>
+                    <option value="18">18:00</option>
+                    <option value="19">19:00</option>
+                    <option value="20">20:00</option>
+                    <option value="21">21:00</option>
+                    <option value="22">22:00</option>
+                    <option value="23">23:00</option>
+                </select>
+
+
+            </li>
+            <li>
+                <p>Mode</p>
+
+                <div class="d-flex justify-content-between">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"
+                               name="mode"
+                               checked
+                               id="marker-cluster">
+                        <label class="form-check-label">
+                            Marker Clustering
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="mode" id="heat-map">
+                        <label class="form-check-label">
+                            Heat Map
+                        </label>
+                    </div>
+                </div>
+            </li>
+
+
+        </div>
+
+
+        <div class="d-flex justify-content-center mb-5">
+            <input type="button" id="send-btn" value="Visualize" class="btn btn-sm btn-primary">
+        </div>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5">
+        <div style="height: 100vh">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+
+
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeLYwPPpDiL1RjRscCPShSCBJAWamzu-I&callback=initMap&libraries=visualization&v=weekly"
+        defer></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
+        integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
+<script src="js/maps.js"></script>
+
+</body>
+</html>

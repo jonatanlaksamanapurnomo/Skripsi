@@ -9,55 +9,53 @@ Perangkat lunak  akan menggunakan data histori KIRI sebagai sumber data untuk me
 \begin{itemize}
     \item LogId    sebagai penanda satu record didalam data histori KIRI.
     \item APIKey
-    sebagai  atribut api key yang digunakan ketika melakukan perintah pada perangkat lunak KIRI.
-    \item Timestamp (UTC)
-    atribut untuk mencatat waktu perintah dilakukan format berbentuk \textit{timestamp}.
-    \item Action
-    jenis action yang dilakukan user pada saat menggunakan perangkat lunak KIRI. Terdapat empat nilai action pada data histori KIRI yakni:
+    sebagai  atribut \textit{API Key} yang digunakan ketika melakukan perintah pada perangkat lunak KIRI.
+    \item Timestamp (UTC) sebagai atribut untuk mencatat waktu perintah dilakukan format berbentuk \textit{timestamp}.
+    \item Action yang dilakukan user pada saat menggunakan perangkat lunak KIRI memiliki empat nilai  \textit{action} pada data histori KIRI yaitu:
     \begin{itemize}
         \item \textit{PAGELOAD}.
         \item \textit{SEARCHPLACE}.
         \item \textit{WIDGETLOAD}.
         \item \textit{FINDROUTE}.
     \end{itemize}
-    \item AdditionalData atribut yang digunakan untuk mencatat informasi tambahan berdasarkan action yang dipilih. Nilai pada additionaldata akan bergantung pada action yang dipilih:
+    \item AdditionalData yang digunakan untuk mencatat informasi tambahan berdasarkan  \textit{action} yang dipilih. Nilai pada additionalData akan bergantung pada \textit{ \textit{action}} yang dipilih:
     \begin{itemize}
-        \item Jika action bernilai \textit{PAGELOAD} maka additionaldata akan bernilai ip dari pengakses.
-        \item Jika action bernilai \textit{SEARCHPLACE} maka additionaldata akan bernlai keyword yang dituliskan oleh pengakses.
-        \item Jika action bernilai \textit{FINDROUTE} maka additionaldata akan bernilai posisi tempat dan tujuan dalam bentuk langtitude dan longtitude  yang dicari oleh pengakses.
-        \item Jika action bernilai \textit{WIDGETLOAD} maka additionaldata akan bernilai alamat url dari penyedia widget.
+        \item Jika  \textit{action} bernilai \textit{PAGELOAD} maka additionalData akan bernilai ip dari pengakses.
+        \item Jika  \textit{action} bernilai \textit{SEARCHPLACE} maka additionalData akan bernilai \textit{keyword} yang dituliskan oleh pengakses.
+        \item Jika  \textit{action} bernilai \textit{FINDROUTE} maka additionalData akan bernilai posisi tempat dan tujuan dalam bentuk \textit{latitude} dan \textit{longitude}  yang dicari oleh pengakses.
+        \item Jika  \textit{action} bernilai \textit{WIDGETLOAD} maka additionalData akan bernilai alamat url dari penyedia \textit{widget}.
     \end{itemize}
 \end{itemize}
 
 
 
 % \section{Analisis Google Maps Javascript API}
-% Perangkat lunak yang akan menggunakan \textit{google maps javascript api} untuk dapat melakukan visualisasi data kedalam bentuk \textit{heatmap} dan \textit{marker clustering}. Untuk dapat menampilkan \textit{map} dan menggunakan fitur yang disediakan oleh \textit{Google Maps Javascript API} maka objek \textit{map} perlu dinisialisaikan. 
+% Perangkat lunak yang akan menggunakan \textit{Google Maps Javascript API} untuk dapat melakukan visualisasi data kedalam bentuk \textit{heatmap} dan \textit{marker clustering}. Untuk dapat menampilkan \textit{map} dan menggunakan fitur yang disediakan oleh \textit{Google Maps Javascript API} maka objek \textit{map} perlu dinisialisaikan. 
 
 
 
 \section{Deskripsi Perangkat Lunak}
 \label{sec:deskripsiPL}
-Pada skripsi ini akan dibangun aplikasi yang bertujuan untuk menemukan pola dengan tool visualisasi. Aplikasi ini akan menggunakan data histori perangkat lunak KIRI sebagai sumber data. Aplikasi ini akan dibangun menggunakan \textit{tools} nodejs dan akan mengimplementasikan \textit{google maps javascript api} sebagai tool untuk melakukan visualisasi data. Beberapa fitur yang dirancang dalam perangkat lunak ini:
+Pada skripsi ini akan dibangun aplikasi yang bertujuan untuk menemukan pola dengan tool visualisasi. Aplikasi ini akan menggunakan data histori perangkat lunak KIRI sebagai sumber data. Aplikasi ini akan dibangun menggunakan \textit{tools node.js} dan akan mengimplementasikan \textit{Google Maps Javascript API} sebagai tool untuk melakukan visualisasi data. Beberapa fitur yang dirancang dalam perangkat lunak ini:
 \begin{itemize}
 \item Perangkat lunak dapat memfilter data berdasarkan atribut \textit{start/finish}.
 \item Perangkat lunak dapat memfilter data berdasarkan atribut waktu.
 \item Perangkat lunak dapat memfilter data berdasarkan atribut hari.
-\item Perangkat lunak dapat menampilkan data dalam bentuk \textit{heat map}
+\item Perangkat lunak dapat menampilkan data dalam bentuk \textit{heat map.}
 \item Perangkat lunak dapat menampilkan data dalam bentuk \textit{marker clustering}.
 \end{itemize}
-Perangkat lunak ini akan melukan filter data dan memproses data histori kiri dan akan menampilkan data tersebut kedalam bentuk \textit{heat map} dan \textit{marker clustering} untuk mendapatkan pola-pola tertentu berdasarkan data histori tersebut. Gambaran tentang alur komunikasi perangkat lunak dapat dilihat pada gambar \ref{fig:alurKomunikasi}
+Perangkat lunak ini akan melakukan filter data dan memproses data histori KIRI dan akan menampilkan data tersebut kedalam bentuk \textit{heat map} dan \textit{marker clustering} untuk mendapatkan pola-pola tertentu berdasarkan data histori tersebut. Gambaran tentang alur komunikasi perangkat lunak dapat dilihat pada gambar \ref{fig:alurKomunikasi}.
 
 \begin{figure}[H]
 	\centering  
-	\includegraphics[scale=0.55]{Gambar/software-flow.PNG}  
+	\includegraphics[scale=0.3]{Gambar/software-flow.png}  
 	\caption[Alur Komunikasi]{Alur Komunikasi} 
 	\label{fig:alurKomunikasi} 
 \end{figure} 
 
 \begin{enumerate}
-\item Perangkat lunak akan mengolah data histori kiri sesuai dengan input yang diberikan.
-\item Data yang sudah diolah  akan diubah kedalam format \textit{JSON}.
+\item Perangkat lunak akan mengolah data histori KIRI sesuai dengan input yang diberikan.
+\item Data yang sudah diolah  akan diubah ke dalam format \textit{JSON}.
 \item Data yang sudah diolah akan digunakan oleh \textit{Google Maps Javascript API} untuk dapat dilakukan visualisasi data.
 \item Perangkat lunak akan memvisualisasikan data kedalam bentuk \textit{heat map} dan \textit{marker clustering}.
 
@@ -68,31 +66,33 @@ Perangkat lunak ini akan melukan filter data dan memproses data histori kiri dan
 Pada subbab ini akan dilakukan analisis untuk aplikasi visualisasi data histori KIRI.
 \subsection{Analisis Kebutuhan Perangkat Lunak}
 \label{sec:analisisKebutuhanPerangkatLunak}
-Berdasarkan latar belakang, rumusan masalah, dan tujuan maka dapat didefinisikan kebutuhan - kebutuhan perangkat lunak visualisasi data histori KIRI sebagi berikut:
+Berdasarkan latar belakang, rumusan masalah, dan tujuan maka dapat didefinisikan kebutuhan perangkat lunak visualisasi data histori KIRI sebagai berikut:
 \begin{itemize}
-    \item Data histori KIRI
+    \item Data histori KIRI \\
     Aplikasi dapat melakukan proses filter pada data histori dan menggunakan data histori KIRI untuk dapat divisualisasikan oleh karena itu diperlukan raw data histori KIRI.
     
-    \item Google Maps Javascript API
-    Aplikasi dapat melakukan visualisasi data menggunakan \textit{heat map} dan \textit{marker clustering} yang merupakan fitur dari \textit{google maps javascript api}.
+    \item Google Maps Javascript API \\
+    Aplikasi dapat melakukan visualisasi data menggunakan \textit{heat map} dan \textit{marker clustering} yang merupakan fitur dari \textit{Google Maps Javascript API}.
     
 \end{itemize}
 \subsection{Use Case Diagram}
-Interaksi antara pengguna dengan perangkat lunak yang dibangun pada skripsi ini digambarkan pada diagram \textit{use case}  \ref{fig:usecase}
+Interaksi antara pengguna dengan perangkat lunak yang dibangun pada skripsi ini digambarkan pada diagram \textit{use case} pada Gambar \ref{fig:usecase}.
 \begin{figure}[H]
-	\centering  
-	\includegraphics[scale=0.8]{Gambar/KIRI USECASE.jpeg}  
+	\centering 
+	\includegraphics[scale=0.6]{Gambar/KIRI USECASE.jpeg}  
 	\caption[Use Case Diagram]{Use Case Diagram} 
 	\label{fig:usecase} 
 \end{figure} 
+
+
 \subsection{Use Case Skenario}
 Setiap fungsi yang ada pada diagram \textit{use case} dijelaskan dengan skenario untuk memberi gambaran interaksi pengguna dengan sistem.
 \begin{table}[H]
     \centering
-    \caption{Tabel Skenario Memfilter Data }
+    \caption{Tabel Skenario Memfilter Data Berdasarkan Start/Finish }
     \begin{tabular}{|p{3cm}|p{10cm}|}
     \hline
-        Nama & Memfilter Data .\\
+        Nama & Memfilter Data Berdasarkan Start/Finish.\\
     \hline
     \hline
         Deskripsi & Melakukan filter data berdasarkan kategori dari data histori kiri \\
@@ -105,7 +105,57 @@ Setiap fungsi yang ada pada diagram \textit{use case} dijelaskan dengan skenario
         \begin{enumerate}
             \item Sistem memuat aplikasi.
             \item Sistem menampilkan data.
-            \item Pengguna  dapat memfilter data berdasarkan waktu,hari, dan \textit{start / finish}.
+            \item Pengguna  dapat memfilter data berdasarkan \textit{start / finish}.
+            \item Sistem melakukan proses filtering berdasarkan atribut yang telah dipilih pengguna.
+        \end{enumerate}\\
+    \hline
+    \end{tabular}
+    \label{tab:skenario1}
+\end{table}
+\begin{table}[H]
+    \centering
+    \caption{Tabel Skenario Memfilter Data Berdasarkan Hari }
+    \begin{tabular}{|p{3cm}|p{10cm}|}
+    \hline
+        Nama & Memfilter Data Berdasarkan Hari.\\
+    \hline
+    \hline
+        Deskripsi & Melakukan filter data berdasarkan kategori dari data histori kiri \\
+    \hline
+        Aktor & Pengguna \\
+    \hline
+        Pre-kondisi & Aplikasi sudah dijalankan dan sudah dapat mengolah raw data histori KIRI.\\
+    \hline
+        Alur Skenario Utama & 
+        \begin{enumerate}
+            \item Sistem memuat aplikasi.
+            \item Sistem menampilkan data.
+            \item Pengguna  dapat memfilter data berdasarkan hari.
+            \item Sistem melakukan proses filtering berdasarkan atribut yang telah dipilih pengguna.
+        \end{enumerate}\\
+    \hline
+    \end{tabular}
+    \label{tab:skenario1}
+\end{table}
+\begin{table}[H]
+    \centering
+    \caption{Tabel Skenario Memfilter Data Berdasarkan Jam }
+    \begin{tabular}{|p{3cm}|p{10cm}|}
+    \hline
+        Nama & Memfilter Data Berdasarkan Jam.\\
+    \hline
+    \hline
+        Deskripsi & Melakukan filter data berdasarkan kategori dari data histori kiri \\
+    \hline
+        Aktor & Pengguna \\
+    \hline
+        Pre-kondisi & Aplikasi sudah dijalankan dan sudah dapat mengolah raw data histori KIRI.\\
+    \hline
+        Alur Skenario Utama & 
+        \begin{enumerate}
+            \item Sistem memuat aplikasi.
+            \item Sistem menampilkan data.
+            \item Pengguna  dapat memfilter data berdasarkan jam.
             \item Sistem melakukan proses filtering berdasarkan atribut yang telah dipilih pengguna.
         \end{enumerate}\\
     \hline
@@ -113,13 +163,12 @@ Setiap fungsi yang ada pada diagram \textit{use case} dijelaskan dengan skenario
     \label{tab:skenario1}
 \end{table}
 
-
 \begin{table}[H]
     \centering
-    \caption{Tabel Skenario Melihat Visualisasi Data Pada Map }
+    \caption{Tabel Skenario Melihat Visualisasi Data Dalam Bentuk Marker Cluster }
     \begin{tabular}{|p{3cm}|p{10cm}|}
     \hline
-        Nama & Melihat Visualisasi Data Pada Map.\\
+        Nama & Melihat Visualisasi Data Dalam Bentuk Marker Cluster.\\
     \hline
     \hline
         Deskripsi & Melihat hasil visualisasi data pada google map  \\
@@ -131,7 +180,32 @@ Setiap fungsi yang ada pada diagram \textit{use case} dijelaskan dengan skenario
         Alur Skenario Utama & 
         \begin{enumerate}
             \item Sistem menampilkan data yang telah difilter oleh pengguna.
-             \item Pengguna  dapat memilih akan menggunakan metode visulasisai \textit{heat map} atau \textit{marker clustering}.
+             \item Pengguna  dapat memilih akan menggunakan metode visulasisai \textit{Marker Cluster} 
+            \item Sistem menampilkan hasil visualisasi data berdasarkan metode yang telah dipilih pengguna.
+        \end{enumerate}\\
+    \hline
+    \end{tabular}
+    \label{tab:skenario1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Tabel Skenario Melihat Visualisasi Data Dalam Bentuk Marker Clustering }
+    \begin{tabular}{|p{3cm}|p{10cm}|}
+    \hline
+        Nama & Melihat Visualisasi Data Dalam Bentuk Heat Map.\\
+    \hline
+    \hline
+        Deskripsi & Melihat hasil visualisasi data pada google map  \\
+    \hline
+        Aktor & Pengguna \\
+    \hline
+        Pre-kondisi & Aplikasi sudah dijalankan dan sudah dapat menampilkan data histori KIRI.\\
+    \hline
+        Alur Skenario Utama & 
+        \begin{enumerate}
+            \item Sistem menampilkan data yang telah difilter oleh pengguna.
+             \item Pengguna  dapat memilih akan menggunakan metode visulasisai \textit{Marker Clustering} 
             \item Sistem menampilkan hasil visualisasi data berdasarkan metode yang telah dipilih pengguna.
         \end{enumerate}\\
     \hline
@@ -140,7 +214,7 @@ Setiap fungsi yang ada pada diagram \textit{use case} dijelaskan dengan skenario
 \end{table}
 
 \subsection{Data Flow Diagram}
-Interaksi data dalam perangkat lunak yang dibangun pada skripsi ini digambarkan pada \textit{data flow diagram} \ref{fig:dfd_0}
+Interaksi data dalam perangkat lunak yang dibangun pada skripsi ini digambarkan pada Gambar \textit{data flow diagram} \ref{fig:dfd_0}.
 \begin{figure}[H]
 	\centering  
 	\includegraphics[scale=0.4]{Gambar/DFD_0.png}  
@@ -148,7 +222,7 @@ Interaksi data dalam perangkat lunak yang dibangun pada skripsi ini digambarkan 
 	\label{fig:dfd_0} 
 \end{figure} 
 
-Pada level 0 ini dapat dilihat pada gambar \ref{fig:dfd_0}, perangkat lunak yang akan dibuat memiliki dua buah flow utama yaitu user dapat melakukan penyaringan data, dan user dapat menerima hasil penyaringan data dalam bentuk visualisasi pada \textit{google maps}. Setelah dilakukan pengujian lebih lanjut maka didapatkan \textit{data flow diagram level 1} \ref{fig:dfd_1}
+Pada level 0 ini dapat dilihat pada gambar \ref{fig:dfd_0}, perangkat lunak yang akan dibuat memiliki dua buah flow utama yaitu user dapat melakukan penyaringan data, dan user dapat menerima hasil penyaringan data dalam bentuk visualisasi pada \textit{google maps}. Setelah dilakukan pengujian lebih lanjut maka didapatkan Gambar \textit{data flow diagram level 1} \ref{fig:dfd_1}.
 
 \begin{figure}[H]
 	\centering  
@@ -157,18 +231,23 @@ Pada level 0 ini dapat dilihat pada gambar \ref{fig:dfd_0}, perangkat lunak yang
 	\label{fig:dfd_1} 
 \end{figure} 
 
-Pada level 1 ini dapat dilihat pada gambar \ref{fig:dfd_1}, perangkat lunak akan memiliki dua buah proses utama yaitu:
+Pada level 1 ini dapat dilihat pada Gambar \ref{fig:dfd_1}, perangkat lunak akan memiliki dua buah proses utama yaitu:
 \begin{itemize}
-    \item Filter data proses untuk melakukan penyaringan data histori kiri berdasarkan \textit{query input} dari user.
-    \item Proses pembuatan object \textit{maps} proses yang akan menerima data histori KIRI dan membuat objek map menggunakan \textit{google maps javascript api}.
+    \item Filter data \\
+    Proses untuk melakukan penyaringan data histori kiri berdasarkan \textit{query input} dari user.
+    \item Proses pembuatan object \textit{maps}\\
+    Proses yang akan menerima data histori KIRI dan membuat objek map menggunakan \textit{Google Maps Javascript API}.
 \end{itemize}
 
-Berdasarkan \textit{data flow diagram } pada gambar \ref{fig:dfd_1}, pada perangkat lunak yang akan dibuat user dapat melakukan tiga buah aksi:
+Berdasarkan \textit{data flow diagram } pada gambar \ref{fig:dfd_1}, pada perangkat lunak yang akan dibuat user dapat melakukan tiga buah aksi, yaitu:
 
 \begin{enumerate}
-  \item Filter data histori KIRI user dapat memasukan filter parameter untuk melakukan proses penyaringan data histori KIRI, dan perangkat lunak akan melakukan proses penyaringan berdasarkan filter parameter yang dipilih user.
-  \item Select mode visualisasi user dapat memilih mode visualisasi pada perangkat lunak ini, akan disediakan dua mode visualisasi \textit{heatmap} dan \textit{marker clustering}.
-  \item Visualisasi data dengan google maps pada perangkat ini user akan menerima output berupa data yang telah tervisualisasi dengan google map.
+  \item Filter data histori KIRI \\
+  User dapat memasukan filter parameter untuk melakukan proses penyaringan data histori KIRI, dan perangkat lunak akan melakukan proses penyaringan berdasarkan filter parameter yang dipilih user.
+  \item Select mode visualisasi \\
+  User dapat memilih mode visualisasi pada perangkat lunak ini, akan disediakan dua mode visualisasi \textit{heatmap} dan \textit{marker clustering}.
+  \item Visualisasi data dengan google maps pada perangkat ini \\
+  User akan menerima output berupa data yang telah tervisualisasi dengan google map.
 \end{enumerate}
 
 \subsection{Flow Chart Diagram}
@@ -185,9 +264,12 @@ Alur perangkat lunak yang akan dibuat dapat digambarkan kedalam bentuk \textit{f
 Input dan output yang akan diterima oleh perangkat lunak yang akan dibuat adalah sebagai berikut.
 
 \begin{itemize}
-    \item Input Filter Parameter filter parameter adalah semua parameter yang  dapat dipilih user untuk dapat melakukan penyaringan data histori KIRI, pada perangkat lunak yang akan dibangun user dapat memilih tiga filter parameter.
+    \item Input Filter Parameter \\
+    Filter Parameter adalah semua parameter yang  dapat dipilih user untuk dapat melakukan penyaringan data histori KIRI, pada perangkat lunak yang akan dibangun user dapat memilih tiga filter parameter.
     
-    \item Input mode visualisasi pada perangkat lunak yang akan dibangun user dapat memilih dua mode visualisasi yaitu \textit{mode heatmap} dan \textit{mode markerclustering}.
+    \item Input mode visualisasi \\
+    Pada perangkat lunak yang akan dibangun user dapat memilih dua mode visualisasi yaitu \textit{mode heatmap} dan \textit{mode markerclustering}.
     
-    \item Output visualisasi data output pada perangkat lunak yang akan dibangun adalah hasil visualisasi data histori KIRI dalam bentuk \textit{marker clustering} atau bentuk \textit{heat map}.
+    \item Output visualisasi data \\
+    Output pada perangkat lunak yang akan dibangun adalah hasil visualisasi data histori KIRI dalam bentuk \textit{marker clustering} atau bentuk \textit{heat map}.
 \end{itemize}
